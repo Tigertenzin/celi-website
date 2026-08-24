@@ -1,0 +1,23 @@
+body {
+  font-family: system-ui, sans-serif;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  line-height: 1.6;
+  color: #222;
+}
+
+nav a {
+  margin-right: 1rem;
+  text-decoration: none;
+  color: #0057b8;
+}
+
+.date {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+img {
+  max-width: 100%;
+}
