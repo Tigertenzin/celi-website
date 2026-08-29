@@ -10,6 +10,10 @@ tags:
 
 **Status: Archived — no longer in active development.**
 
+## Description
+
+![app icon](attachments/oaksParcel-v1-appIcon.webp)
+
 Oak's Parcel is a modern iOS take on a Pokedex app, completely free with no features behind a paywall. It covers main-line Pokemon games from Generations I–VII.
 
 Features as of its last update:
@@ -23,3 +27,14 @@ Features as of its last update:
 - Type matchup chart
 
 [View on the App Store](https://apps.apple.com/us/app/oaks-parcel/id1523406646)
+
+## Screenshots 
+
+![img1](attachments/oaksParcel-v1-img1.png)
+![img2](attachments/oaksParcel-v1-img2.png)
+![img3](attachments/oaksParcel-v1-img3.webp)
+![img4](attachments/oaksParcel-v1-img4.webp)
+![img5](attachments/oaksParcel-v1-img5.webp)
+![img6](attachments/oaksParcel-v1-img6.webp)
+![img7](attachments/oaksParcel-v1-img7.webp)
+
