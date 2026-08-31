@@ -4,6 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ title }} — My Site</title>
+  <script>
+    (function () {
+      var stored = localStorage.getItem("theme");
+      if (stored === "light" || stored === "dark") {
+        document.documentElement.setAttribute("data-theme", stored);
+      }
+    })();
+  </script>
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
@@ -13,17 +21,87 @@
       <a href="/posts/">Blog</a>
       <a href="/projects/">Projects</a>
       <a href="/links/">Links</a>
+      <button id="theme-toggle" aria-label="Toggle color theme"></button>
     </nav>
   </header>
 
   <main>
-    <h1>{{ title }}</h1>
-    {% if date %}<p class="date">{{ date | date: "%d %b %Y" }}</p>{% endif %}
+    <div class="page-header">
+      {% if icon %}<img class="app-icon" src="{{ icon }}" alt="">{% endif %}
+      <h1>{{ title }}</h1>
+    </div>
+    {% if date %}<p class="date">{{ date | readableDate }}</p>{% endif %}
     {{ content }}
   </main>
 
   <footer>
     <p>Built with Eleventy.</p>
   </footer>
+
+  <dialog id="lightbox" class="lightbox">
+    <button type="button" id="lightbox-close" class="lightbox-close" aria-label="Close">&times;</button>
+    <img id="lightbox-img" src="" alt="">
+  </dialog>
+
+  <script>
+    (function () {
+      var dialog = document.getElementById("lightbox");
+      var img = document.getElementById("lightbox-img");
+      var closeBtn = document.getElementById("lightbox-close");
+
+      document.addEventListener("click", function (e) {
+        var item = e.target.closest(".gallery-item");
+        if (!item) return;
+        img.src = item.dataset.full;
+        img.alt = item.dataset.alt || "";
+        dialog.showModal();
+      });
+
+      closeBtn.addEventListener("click", function () {
+        dialog.close();
+      });
+
+      dialog.addEventListener("click", function (e) {
+        if (e.target === dialog) dialog.close();
+      });
+
+      dialog.addEventListener("close", function () {
+        img.src = "";
+      });
+    })();
+  </script>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var btn = document.getElementById("theme-toggle");
+      var mql = window.matchMedia("(prefers-color-scheme: dark)");
+
+      function currentTheme() {
+        var attr = root.getAttribute("data-theme");
+        if (attr === "light" || attr === "dark") return attr;
+        return mql.matches ? "dark" : "light";
+      }
+
+      function render() {
+        var theme = currentTheme();
+        btn.textContent = theme === "dark" ? "☀️" : "🌙";
+        btn.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+      }
+
+      btn.addEventListener("click", function () {
+        var next = currentTheme() === "dark" ? "light" : "dark";
+        root.setAttribute("data-theme", next);
+        localStorage.setItem("theme", next);
+        render();
+      });
+
+      mql.addEventListener("change", function () {
+        if (!localStorage.getItem("theme")) render();
+      });
+
+      render();
+    })();
+  </script>
 </body>
 </html>
