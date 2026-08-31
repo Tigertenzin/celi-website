@@ -81,32 +81,58 @@ img {
   flex-shrink: 0;
 }
 
-.page-header {
+.page-header--icon {
   display: flex;
-  align-items: center;
-  gap: 0.9rem;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 0.5rem;
 }
 
-.page-header .app-icon {
-  width: 56px;
-  height: 56px;
+.page-header--icon .app-icon {
+  width: 120px;
+  height: 120px;
+}
+
+.page-header--icon h1 {
+  margin: 0;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
 }
 
 .project-list {
   list-style: none;
   padding: 0;
-}
-
-.project-list li {
   display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  margin: 0.6rem 0;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-.project-list .app-icon {
-  width: 32px;
-  height: 32px;
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.project-card .app-icon {
+  width: 120px;
+  height: 120px;
+}
+
+.project-card h3 {
+  margin: 0;
+}
+
+.project-card h3 a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.project-card h3 a:hover {
+  text-decoration: underline;
 }
 
 .gallery {

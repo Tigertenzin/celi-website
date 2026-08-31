@@ -4,6 +4,7 @@ title: Workout Journal
 date: 2026-08-31
 status: in-development
 icon:
+subtitle:
 screenshots:
 tags:
   - ios
