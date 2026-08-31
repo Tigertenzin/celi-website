@@ -5,7 +5,7 @@ title: Home
 
 Hi, I'm Celi. 
 
-This is my personal site — a blog, a portfolio of coding projects, and links to where else I am online.
+This is my personal site (Currently Under Construction)
 
 - [Read the blog](/posts/)
 - [See my projects](/projects/)
