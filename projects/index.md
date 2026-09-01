@@ -9,9 +9,9 @@ eleventyExcludeFromCollections: true
 <ul class="project-list">
 {% for project in collections.currentProjects %}
   <li class="project-card">
-    {% if project.data.icon %}<img class="app-icon" src="{{ project.data.icon }}" alt="">{% endif %}
+    {%- if project.data.icon %}<img class="app-icon" src="{{ project.data.icon }}" alt="">{% else %}<div class="app-icon app-icon-placeholder"></div>{% endif -%}
     <h3><a href="{{ project.url }}">{{ project.data.title }}</a></h3>
-    {% if project.data.subtitle %}<p class="subtitle">{{ project.data.subtitle }}</p>{% endif %}
+    {%- if project.data.subtitle %}<p class="subtitle">{{ project.data.subtitle }}</p>{% endif -%}
   </li>
 {% endfor %}
 </ul>
@@ -21,9 +21,9 @@ eleventyExcludeFromCollections: true
 <ul class="project-list">
 {% for project in collections.archivedProjects %}
   <li class="project-card">
-    {% if project.data.icon %}<img class="app-icon" src="{{ project.data.icon }}" alt="">{% endif %}
+    {%- if project.data.icon %}<img class="app-icon" src="{{ project.data.icon }}" alt="">{% else %}<div class="app-icon app-icon-placeholder"></div>{% endif -%}
     <h3><a href="{{ project.url }}">{{ project.data.title }}</a></h3>
-    {% if project.data.subtitle %}<p class="subtitle">{{ project.data.subtitle }}</p>{% endif %}
+    {%- if project.data.subtitle %}<p class="subtitle">{{ project.data.subtitle }}</p>{% endif -%}
   </li>
 {% endfor %}
 </ul>

@@ -81,6 +81,11 @@ img {
   flex-shrink: 0;
 }
 
+.app-icon-placeholder {
+  border: 1px dashed var(--border);
+  background: var(--bg);
+}
+
 .page-header--icon {
   display: flex;
   flex-direction: column;
