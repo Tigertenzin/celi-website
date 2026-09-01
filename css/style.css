@@ -87,19 +87,23 @@ img {
 }
 
 .page-header--icon {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
   margin-bottom: 0.5rem;
+  overflow: hidden;
 }
 
 .page-header--icon .app-icon {
+  float: right;
   width: 120px;
   height: 120px;
+  margin-left: 1rem;
 }
 
 .page-header--icon h1 {
   margin: 0;
+}
+
+.page-header--icon .subtitle {
+  margin-top: 0.6rem;
 }
 
 .subtitle {
