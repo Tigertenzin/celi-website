@@ -5,7 +5,9 @@ title: Home
 
 Hi, I'm Celi. 
 
-This is my personal site (Currently Under Construction)
+i've decided to start a little blog/personal website. i've also started up iOS development again, after [my first project](/projects/oaks-parcel/) 5 years ago that has gone abandoned. i have some random small projects in the works, nothing worth showing yet. as they get closer to a finished state, i'll probably start showing stuff off here and on [Mastodon](https://mastodon.world/@Celeryboi)/[Bluesky](https://bsky.app/profile/celeryboi.bsky.social)!
+
+but for now, i made my first blog post, just a little intro to myself. hopefully you'll stick around as i continue development!
 
 - [Read the blog](/posts/)
 - [See my projects](/projects/)
