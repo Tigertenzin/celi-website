@@ -28,8 +28,8 @@
   </header>
 
   <main>
-    <div class="page-header{% if icon or status %} page-header--icon{% endif %}">
-      {% if icon %}<img class="app-icon" src="{{ icon }}" alt="">{% elsif status %}<div class="app-icon app-icon-placeholder"></div>{% endif %}
+    <div class="page-header{% if icon %} page-header--icon{% endif %}">
+      {% if icon %}<img class="app-icon" src="{{ icon }}" alt="">{% endif %}
       <h1>{{ title }}</h1>
       {% if subtitle %}<p class="subtitle">{{ subtitle }}</p>{% endif %}
     </div>

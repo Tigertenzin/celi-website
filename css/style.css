@@ -12,7 +12,7 @@
     --text: #e8e8e8;
     --muted: #9a9a9a;
     --link: #ff8fb3;
-    --border: #2c2f33;
+    --border: #5d4647;
   }
 }
 
@@ -21,7 +21,7 @@
   --text: #e8e8e8;
   --muted: #9a9a9a;
   --link: #ff8fb3;
-  --border: #2c2f33;
+  --border: #5d4647;
 }
 
 * {
@@ -139,11 +139,6 @@ a:visited {
   flex-shrink: 0;
 }
 
-.app-icon-placeholder {
-  border: 1px dashed var(--border);
-  background: var(--bg);
-}
-
 .page-header--icon {
   margin-bottom: 0.5rem;
   overflow: hidden;
@@ -167,7 +162,7 @@ a:visited {
 .subtitle {
   margin: 0;
   color: var(--muted);
-  font-size: 1.05rem;
+  font-size: 0.95rem;
 }
 
 .project-list {
@@ -243,6 +238,7 @@ a:visited {
   margin: 0;
   color: var(--text);
   text-decoration: underline;
+  text-decoration-color: var(--muted);
 }
 
 .post-excerpt {
