@@ -4,7 +4,7 @@ title: Oak's Parcel
 date: 2020-09-16
 status: archived
 icon: /projects/attachments/oaksParcel-v1-appIcon.webp
-subtitle:
+subtitle: "A Pokédex for generations 1-7, built for iOS"
 tags:
   - ios
   - swift

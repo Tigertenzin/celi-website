@@ -1,6 +1,7 @@
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy("projects/attachments");
+  eleventyConfig.addPassthroughCopy("posts/attachments");
 
   eleventyConfig.addCollection("posts", function (collectionApi) {
     return collectionApi.getFilteredByGlob("posts/**/*.md").reverse();
@@ -9,13 +10,24 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("currentProjects", function (collectionApi) {
     return collectionApi
       .getFilteredByGlob("projects/**/*.md")
-      .filter((project) => project.data.status !== "archived");
+      .filter((project) => project.data.status !== "archived" && project.data.status !== "in-development");
   });
 
   eleventyConfig.addCollection("archivedProjects", function (collectionApi) {
     return collectionApi
       .getFilteredByGlob("projects/**/*.md")
       .filter((project) => project.data.status === "archived");
+  });
+
+  eleventyConfig.addFilter("excerpt", function (content, length = 300) {
+    if (!content) return "";
+    const text = content
+      .replace(/<h[1-6][^>]*>.*?<\/h[1-6]>/gis, " ")
+      .replace(/<[^>]*>/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+    if (text.length <= length) return text;
+    return text.slice(0, length).replace(/\s+\S*$/, "") + "…";
   });
 
   eleventyConfig.addFilter("readableDate", function (dateObj) {

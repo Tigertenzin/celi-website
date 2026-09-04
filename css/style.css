@@ -1,6 +1,5 @@
 :root {
   --bg: #fdf8f9;
-  --card-bg: #ffffff;
   --text: #222222;
   --muted: #767676;
   --link: #d6336c;
@@ -10,7 +9,6 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #3b3036;
-    --card-bg: #242424;
     --text: #e8e8e8;
     --muted: #9a9a9a;
     --link: #ff8fb3;
@@ -20,7 +18,6 @@
 
 :root[data-theme="dark"] {
   --bg: #3b3036;
-  --card-bg: #242424;
   --text: #e8e8e8;
   --muted: #9a9a9a;
   --link: #ff8fb3;
@@ -32,13 +29,25 @@
 }
 
 body {
-  font-family: system-ui, sans-serif;
+  font-family: "Lora", Georgia, serif;
   max-width: 700px;
   margin: 0 auto;
   padding: 2rem 1rem;
   line-height: 1.6;
   background: var(--bg);
   color: var(--text);
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+}
+
+h3 {
+  font-size: 1.05rem;
 }
 
 header nav {
@@ -94,6 +103,14 @@ header nav a:last-of-type,
 
 img {
   max-width: 100%;
+}
+
+main p img {
+  display: block;
+  max-width: 480px;
+  width: 100%;
+  margin: 1.5rem auto;
+  border-radius: 8px;
 }
 
 a,
@@ -163,14 +180,14 @@ a:visited {
 
 .project-card {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 1rem;
-  padding: 1rem;
-  border-radius: 12px;
-  background: var(--card-bg);
-  box-shadow: none;
   color: inherit;
   text-decoration: none;
+}
+
+.project-card:hover h3 {
+  text-decoration: underline;
 }
 
 .project-card .app-icon {
@@ -187,6 +204,63 @@ a:visited {
 .project-card h3 {
   margin: 0;
   color: var(--text);
+}
+
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.post-list li {
+  border-top: 1px solid var(--border);
+}
+
+.post-list li:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.post-list--bare li,
+.post-list--bare li:last-child {
+  border: none;
+}
+
+.post-item {
+  display: block;
+  padding: 1.25rem 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+.post-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-bottom: 0.4rem;
+}
+
+.post-meta h3 {
+  margin: 0;
+  color: var(--text);
+  text-decoration: underline;
+}
+
+.post-excerpt {
+  margin: 0;
+  color: var(--muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.end-of-posts {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  margin: 2rem 0 0;
 }
 
 .gallery {
