@@ -1,6 +1,7 @@
 ---
 layout: layouts/base.liquid
 title: Projects
+description: "iOS apps and other projects built by Celi."
 eleventyExcludeFromCollections: true
 ---
 

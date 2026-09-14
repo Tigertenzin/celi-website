@@ -2,6 +2,7 @@
 layout: layouts/base.liquid
 title: hello! this is my first blog post!
 date: 2026-09-05
+description: "An introduction post, and the start of a weekly journal series."
 tags:
   - journal
   - TheEnthusiast

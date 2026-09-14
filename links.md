@@ -1,6 +1,7 @@
 ---
 layout: layouts/base.liquid
 title: About
+description: "About Celi — code, Pokemon card photos, and where to find her online."
 ---
 
 hi, my name is Celi (short for Celeryboi)

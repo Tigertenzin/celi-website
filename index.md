@@ -1,6 +1,7 @@
 ---
 layout: layouts/base.liquid
 title: Home
+description: "Celi's personal site — blog posts, iOS app projects, and whatever else feels worth writing about."
 ---
 
 Hi, I'm Celi. 

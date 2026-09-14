@@ -4,6 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ title }} — My Site</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  {% assign pageDescription = description | default: subtitle | default: site.description %}
+  {% assign ogImage = icon %}
+  {% unless icon %}
+    {% if screenshots and screenshots.size > 0 %}
+      {% assign ogImage = screenshots[0] %}
+    {% endif %}
+  {% endunless %}
+  <meta name="description" content="{{ pageDescription }}">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:type" content="{% if page.url contains '/posts/' %}article{% else %}website{% endif %}">
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ pageDescription }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  {% if ogImage %}<meta property="og:image" content="{{ site.url }}{{ ogImage }}">{% endif %}
+
+  <meta name="twitter:card" content="{% if ogImage %}summary_large_image{% else %}summary{% endif %}">
+  <meta name="twitter:title" content="{{ title }}">
+  <meta name="twitter:description" content="{{ pageDescription }}">
+  {% if ogImage %}<meta name="twitter:image" content="{{ site.url }}{{ ogImage }}">{% endif %}
   <script>
     (function () {
       var stored = localStorage.getItem("theme");

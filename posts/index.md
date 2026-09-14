@@ -1,6 +1,7 @@
 ---
 layout: layouts/base.liquid
 title: Blog
+description: "Blog posts from Celi."
 eleventyExcludeFromCollections: true
 ---
 
