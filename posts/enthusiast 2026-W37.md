@@ -6,11 +6,11 @@ title: this week was eventful
 date: 2026-09-13
 layout: layouts/base.liquid
 ---
+  
 
+an interesting week where there were a couple of events that i found myself excited to watch! both were on the same day too, which seems rare (but maybe it’s not). 
 
-# this week was eventful  
-
-interesting week where there were a couple of events that i found myself excited to watch! both were on the same day too, which seems rare (but maybe it’s not). 
+## the events in question
 
 earlier in the day was the Nintendo Direct. there’s always tons of rumors and “leaks” for what will be in the event, but there’s always a surprise or two in there. i was hopefully for a new Smash Bros. game, which sadly didn’t happen. but announcement for *new Metroid and Kirby games* are very exciting, even if a large part of the internet was disappointed. it’s ok to be disappointed, as long as its not at the expense of other people’s enjoyment. sadly that’s not a sentiment i see carried out by everyone. 
 
