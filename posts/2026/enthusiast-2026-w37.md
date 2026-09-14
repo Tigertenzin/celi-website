@@ -4,6 +4,7 @@ tags:
   - TheEnthusiast
 title: this week was eventful
 date: 2026-09-13
+description: "A weekly journal entry — the eventful bits of the week of Sep 7-13, 2026."
 layout: layouts/base.liquid
 ---
   
