@@ -2,14 +2,14 @@
 layout: layouts/base.liquid
 title: "Terms of Use — Kaomoji Keyboard"
 description: "The terms that govern your use of Kaomoji Keyboard."
-date: 2026-08-28
+date: 2026-09-14
 eleventyExcludeFromCollections: true
 ---
 
 # Terms of Use
 
 **Kaomoji Keyboard**
-_Last updated: 28 August 2026_
+_Last updated: 14 September 2026_
 
 By downloading or using Kaomoji Keyboard ("the app"), you agree to these terms.
 If you don't agree, please don't use the app.
@@ -31,9 +31,19 @@ elsewhere.
 
 ## The keyboard and Full Access
 
-The Kaomoji Keyboard extension does **not** request "Allow Full Access" and makes
-no network requests. It cannot read, record, or transmit what you type. See the
-[Privacy Policy](/projects/kaomoji-keyboard/privacy/) for details.
+The Kaomoji Keyboard extension makes **no network requests**. It only inserts
+kaomoji into the field you are typing in; it does not read, record, or transmit
+what you type.
+
+The keyboard asks for iOS's **"Allow Full Access"** permission. It is optional and
+off until you grant it. It is used for one thing: letting the keyboard save to
+storage on your device that it shares with the app, which is what makes Recent,
+Frequent, and Stats possible. Nothing is uploaded, and granting it does not change
+what we collect.
+
+If you decline, the keyboard remains fully functional for typing — you simply
+won't get Recent, Frequent, or Stats. See the [Privacy Policy](/projects/kaomoji-keyboard/privacy/) for the
+full explanation, including what this permission would and would not allow.
 
 ## Purchases
 

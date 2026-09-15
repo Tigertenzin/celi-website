@@ -2,18 +2,24 @@
 layout: layouts/base.liquid
 title: "Privacy Policy — Kaomoji Keyboard"
 description: "What Kaomoji Keyboard collects, what it never collects, and how to turn it off."
-date: 2026-08-28
+date: 2026-09-14
 eleventyExcludeFromCollections: true
 ---
 
 # Privacy Policy
 
 **Kaomoji Keyboard**
-_Last updated: 28 August 2026_
+_Last updated: 14 September 2026_
 
 ## The short version
 
-**The keyboard never sends anything, anywhere.** It cannot see what you type.
+**The keyboard never sends anything, anywhere.** It contains no networking code
+at all. It only inserts kaomoji — it never reads what you type.
+
+The keyboard asks for iOS's "Allow Full Access" permission so it can save your
+recents and usage counts on your device. It is **optional**, it sends us nothing,
+and the keyboard works normally if you decline — see **About "Allow Full Access"**
+below.
 
 The app collects anonymous, aggregate statistics about which features get used —
 never what you type, never your custom kaomoji, never your searches. You can turn
@@ -21,16 +27,46 @@ it off in Settings.
 
 ## The keyboard extension collects nothing
 
-The Kaomoji Keyboard extension makes **no network requests of any kind**.
+The Kaomoji Keyboard extension makes **no network requests of any kind**. There is
+no analytics code and no networking code in the extension.
 
-It does **not** request "Allow Full Access" — the iOS permission that would let a
-keyboard transmit what you type. Because we never request it, we cannot see
-anything you type, in this app or any other. This is a structural guarantee, not
-a policy promise.
+It only ever *inserts* text. It does not read the field you are typing in, does
+not read the surrounding document, and does not record your keystrokes.
 
 Your favorites, hidden kaomoji, and usage counts live only on your device, in a
 storage container shared between the app and its keyboard. They are never
 uploaded.
+
+## About "Allow Full Access"
+
+The keyboard asks for iOS's **Allow Full Access** permission. It is optional. The
+keyboard works completely normally without it, and you can turn it off at any time
+in Settings → General → Keyboard → Keyboards.
+
+**Why it is needed.** The keyboard runs in its own sandbox, separate from the app.
+Without Full Access, iOS mounts the app's shared storage **read-only** for the
+keyboard: it can read your kaomoji and favorites, but cannot save anything back.
+That is what blocks Recent, Frequent, and the Stats screen — the keyboard has no
+way to record that you used a kaomoji.
+
+**What we use it for.** Writing to that shared storage on your device, and nothing
+else: your usage counts, your recents, and favorites you star from the keyboard.
+
+**What it does not change.** The keyboard still makes no network requests. Nothing
+it saves is uploaded. Granting this permission does not cause anything to be sent
+to us or to anyone else.
+
+**An honest note on what this permission means.** Earlier versions of this app did
+not request Full Access, which meant iOS itself made transmission impossible. That
+is no longer the case. With Full Access granted, iOS *would permit* a keyboard to
+use the network and to read what you type. We do not do either — there is no
+networking code in the extension, and it only ever inserts text — but you are now
+trusting our design rather than an operating-system restriction. If you would
+rather not extend that trust, decline the permission. The keyboard stays fully
+functional; you simply won't get Recent, Frequent, or Stats.
+
+**If you decline.** Every kaomoji, every category, and search all work exactly the
+same. Only the features that require saving are unavailable.
 
 ## What the app collects
 
@@ -78,12 +114,12 @@ app reports:
 
 ## What we never collect
 
-- **The kaomoji you type.** Not in the keyboard, not in the app. The keyboard has
-  no network access at all.
+- **The kaomoji you type.** Not in the keyboard, not in the app. The keyboard
+  makes no network requests.
 - **Your custom kaomoji.** We count how many you have. We never see what they are.
 - **Your search queries.** We record only whether search was used, never the text.
-- **Anything you type in other apps.** Structurally impossible — we do not request
-  Full Access.
+- **Anything you type in other apps.** The keyboard only inserts text. It never
+  reads the field you are typing in, and it has no way to send anything anywhere.
 - **Advertising identifiers (IDFA), or any cross-app or cross-website tracking.**
   We do not track you. We do not share data with advertisers or data brokers.
 - **Your name, email address, phone number, location, contacts, or photos.**
