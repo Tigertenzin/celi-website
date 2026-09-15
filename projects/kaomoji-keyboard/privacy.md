@@ -1,15 +1,15 @@
 ---
 layout: layouts/base.liquid
-title: "Privacy Policy — Kaomoji Keyboard"
-description: "What Kaomoji Keyboard collects, what it never collects, and how to turn it off."
-date: 2026-09-14
+title: "Privacy Policy — KaoBloom"
+description: "What KaoBloom collects, what it never collects, and how to turn it off."
+date: 2026-09-15
 eleventyExcludeFromCollections: true
 ---
 
 # Privacy Policy
 
-**Kaomoji Keyboard**
-_Last updated: 14 September 2026_
+**KaoBloom**
+_Last updated: 15 September 2026_
 
 ## The short version
 
@@ -27,7 +27,7 @@ it off in Settings.
 
 ## The keyboard extension collects nothing
 
-The Kaomoji Keyboard extension makes **no network requests of any kind**. There is
+The KaoBloom keyboard extension makes **no network requests of any kind**. There is
 no analytics code and no networking code in the extension.
 
 It only ever *inserts* text. It does not read the field you are typing in, does
@@ -169,4 +169,4 @@ Material changes will be noted in the app's release notes and reflected in the
 
 ## Contact
 
-Questions about privacy: **[your contact email]**
+Questions about privacy: **oaksParceliOS@gmail.com**

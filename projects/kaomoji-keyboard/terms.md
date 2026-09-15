@@ -1,22 +1,22 @@
 ---
 layout: layouts/base.liquid
-title: "Terms of Use — Kaomoji Keyboard"
-description: "The terms that govern your use of Kaomoji Keyboard."
-date: 2026-09-14
+title: "Terms of Use — KaoBloom"
+description: "The terms that govern your use of KaoBloom."
+date: 2026-09-15
 eleventyExcludeFromCollections: true
 ---
 
 # Terms of Use
 
-**Kaomoji Keyboard**
-_Last updated: 14 September 2026_
+**KaoBloom**
+_Last updated: 15 September 2026_
 
-By downloading or using Kaomoji Keyboard ("the app"), you agree to these terms.
+By downloading or using KaoBloom ("the app"), you agree to these terms.
 If you don't agree, please don't use the app.
 
 ## The app
 
-Kaomoji Keyboard provides a library of Japanese-style text emoticons (kaomoji)
+KaoBloom provides a library of Japanese-style text emoticons (kaomoji)
 and a custom iOS keyboard for inserting them into other apps. It's a personal
 project, provided as-is.
 
@@ -31,7 +31,7 @@ elsewhere.
 
 ## The keyboard and Full Access
 
-The Kaomoji Keyboard extension makes **no network requests**. It only inserts
+The KaoBloom keyboard extension makes **no network requests**. It only inserts
 kaomoji into the field you are typing in; it does not read, record, or transmit
 what you type.
 
@@ -113,4 +113,4 @@ accept the revised terms.
 
 ## Contact
 
-Questions about these terms: **[your contact email]**
+Questions about these terms: **oaksParceliOS@gmail.com**
