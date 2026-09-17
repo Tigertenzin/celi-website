@@ -237,10 +237,19 @@ a:visited {
 }
 
 .post-item {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   padding: 1.25rem 0;
   color: inherit;
   text-decoration: none;
+}
+
+.post-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .post-meta {
@@ -264,6 +273,15 @@ a:visited {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.post-thumb {
+  flex-shrink: 0;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  border-radius: 8px;
 }
 
 .end-of-posts {

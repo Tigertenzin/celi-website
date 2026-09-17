@@ -1,3 +1,6 @@
+const fs = require("fs");
+const path = require("path");
+
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy("favicon.svg");
@@ -29,6 +32,16 @@ module.exports = function (eleventyConfig) {
       .trim();
     if (text.length <= length) return text;
     return text.slice(0, length).replace(/\s+\S*$/, "") + "…";
+  });
+
+  eleventyConfig.addFilter("thumbnail", function (post) {
+    const declared = post?.data?.thumbnail;
+    if (declared) {
+      if (!declared.startsWith("/")) return declared;
+      if (fs.existsSync(path.join(__dirname, declared))) return declared;
+    }
+    const match = (post.templateContent || "").match(/<img\b[^>]*\bsrc="([^"]+)"/);
+    return match ? match[1] : "";
   });
 
   eleventyConfig.addFilter("readableDate", function (dateObj) {
