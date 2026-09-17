@@ -54,6 +54,20 @@ module.exports = function (eleventyConfig) {
     return `<div class="gallery">\n${items}\n</div>`;
   });
 
+  // A markdown paragraph containing only images (whether written on one
+  // line, or on consecutive lines with no blank line between them, which
+  // CommonMark still joins into one paragraph) is turned into a
+  // side-by-side row. Images separated by a blank line land in different
+  // paragraphs and keep the existing full-width treatment.
+  eleventyConfig.addTransform("imageRows", function (content, outputPath) {
+    if (!outputPath || !outputPath.endsWith(".html")) return content;
+    return content.replace(/<p>((?:\s*<img\b[^>]*>)+\s*)<\/p>/g, (match, inner) => {
+      const imgs = inner.match(/<img\b[^>]*>/g) || [];
+      if (imgs.length < 2) return match;
+      return `<div class="image-row">${imgs.join("")}</div>`;
+    });
+  });
+
   return {
     dir: {
       input: ".",
