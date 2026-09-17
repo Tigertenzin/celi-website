@@ -17,14 +17,19 @@ but for now, i made my first blog post, just a little intro to myself. hopefully
 ## Lately
 
 {% if collections.posts.size > 0 %}
+{%- assign latest = collections.posts.first -%}
+{%- assign thumb = latest | thumbnail -%}
 <ul class="post-list post-list--bare">
   <li>
-    <a class="post-item" href="{{ collections.posts.first.url }}">
-      <div class="post-meta">
-        <h3>{{ collections.posts.first.data.title }}</h3>
-        <span class="date">{{ collections.posts.first.data.date | readableDate }}</span>
+    <a class="post-item" href="{{ latest.url }}">
+      <div class="post-text">
+        <div class="post-meta">
+          <h3>{{ latest.data.title }}</h3>
+          <span class="date">{{ latest.data.date | readableDate }}</span>
+        </div>
+        <p class="post-excerpt">{{ latest.templateContent | excerpt }}</p>
       </div>
-      <p class="post-excerpt">{{ collections.posts.first.templateContent | excerpt }}</p>
+      {%- if thumb %}<img class="post-thumb" src="{{ thumb }}" alt="" loading="lazy">{% endif -%}
     </a>
   </li>
 </ul>
