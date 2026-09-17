@@ -20,3 +20,5 @@ It’s been a while since I’ve had this much fun with a set. Lately, it's been
 That’s all I wanted to say here. I wanted to dedicate a post specifically to the joy I had last night opening this set and sharing that joy with all my friends that were also opening this set. Here’s hoping this set remains accessible, cheap, and for the fans! 
 
 Now, I'll continue to wait for my copy of *Fire Emblem: Fortune's Weave* to arrive. I pre-ordered the Dagdan collection, so it's taking a little extra long to get here, not to mention we have friends staying over so I can't really no-life this game while they're here anyways.
+
+But I might post about that when it arrives, making two posts in one week! We'll see! ˖ ࣪‧₊˚⋆✩٩(ˊᗜˋ*)و ✩
