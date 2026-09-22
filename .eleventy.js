@@ -4,6 +4,7 @@ const path = require("path");
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy("favicon.svg");
+  eleventyConfig.addPassthroughCopy("_redirects");
   eleventyConfig.addPassthroughCopy("attachments");
   eleventyConfig.addPassthroughCopy("projects/attachments");
   eleventyConfig.addPassthroughCopy("posts/attachments");
@@ -75,11 +76,14 @@ module.exports = function (eleventyConfig) {
   // paragraphs and keep the existing full-width treatment.
   eleventyConfig.addTransform("imageRows", function (content, outputPath) {
     if (!outputPath || !outputPath.endsWith(".html")) return content;
-    return content.replace(/<p>((?:\s*<img\b[^>]*>)+\s*)<\/p>/g, (match, inner) => {
-      const imgs = inner.match(/<img\b[^>]*>/g) || [];
-      if (imgs.length < 2) return match;
+    let out = content.replace(/(?:<img\b[^>]*>\s*){2,}/g, (run) => {
+      const imgs = run.match(/<img\b[^>]*>/g) || [];
       return `<div class="image-row">${imgs.join("")}</div>`;
     });
+    // A paragraph that held nothing but the row would otherwise wrap it
+    // in a <p>, which is invalid since <div> isn't phrasing content.
+    out = out.replace(/<p>\s*(<div class="image-row">[\s\S]*?<\/div>)\s*<\/p>/g, "$1");
+    return out;
   });
 
   return {
