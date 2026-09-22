@@ -5,7 +5,7 @@ tags:
   - myGaming
   - novel
 title: "Fire Emblem: Fortune’s Weave - Love, Appreciation, and Everything Else"
-postDate: 2026-09-22
+date: 2026-09-22
 layout: layouts/base.liquid
 ---
 
