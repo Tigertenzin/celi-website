@@ -36,6 +36,6 @@ i also read this novel, *Annie On My Mind* by Nancy Garden. it’s kind of a cla
 
 ## concluding 
 
-time to no life *Fortune’s Weave*! I was so tempted to take some time off work to no-life this game, but i think i’ll be responsible and save my sick/vacation time for when i really need it. happy Fortune’s Weaving! 
+time to no-life *Fortune’s Weave*! I was so tempted to take some time off work to continue playing, but i think i’ll be responsible and save my sick/vacation time for when i really need it. happy Fortune’s Weaving! 
 
 ₍₍⚞(˶˃ ᵕ ˂˶)⚟⁾⁾✨
