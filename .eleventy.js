@@ -1,5 +1,7 @@
 const fs = require("fs");
 const path = require("path");
+const { feedPlugin } = require("@11ty/eleventy-plugin-rss");
+const site = require("./_data/site.json");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("css");
@@ -11,6 +13,30 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addCollection("posts", function (collectionApi) {
     return collectionApi.getFilteredByGlob("posts/**/*.md").reverse();
+  });
+
+  // Oldest-first, matching the order the feed plugin's template expects
+  // (it reverses this itself to get newest-first for the feed).
+  eleventyConfig.addCollection("postsFeed", function (collectionApi) {
+    return collectionApi.getFilteredByGlob("posts/**/*.md");
+  });
+
+  eleventyConfig.addPlugin(feedPlugin, {
+    type: "rss",
+    outputPath: "/feed.xml",
+    collection: {
+      name: "postsFeed",
+      limit: 20,
+    },
+    metadata: {
+      language: "en",
+      title: site.name,
+      subtitle: site.description,
+      base: site.url,
+      author: {
+        name: site.name,
+      },
+    },
   });
 
   eleventyConfig.addCollection("currentProjects", function (collectionApi) {
