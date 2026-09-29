@@ -5,8 +5,6 @@ description: "Blog posts from Celi."
 eleventyExcludeFromCollections: true
 ---
 
-<p class="rss-subscribe"><a href="/feed.xml">🔗 Subscribe via RSS</a></p>
-
 <ul class="post-list">
 {% for post in collections.posts %}
   {%- assign thumb = post | thumbnail -%}

@@ -388,12 +388,6 @@ h2:has(+ .post-list--bare) {
   margin: 2rem 0 0;
 }
 
-.rss-subscribe {
-  text-align: right;
-  margin: -0.5rem 0 1rem;
-  font-size: 0.9rem;
-}
-
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
