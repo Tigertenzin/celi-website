@@ -81,7 +81,9 @@ module.exports = function (eleventyConfig) {
     });
   });
 
-  eleventyConfig.addShortcode("gallery", function (images, altPrefix) {
+  // `aspect` is the screenshots' shape, as a CSS ratio — phone-shaped ("9 / 19.5") unless
+  // given, e.g. "3 / 4" for iPad screenshots, which would otherwise be cropped at the sides.
+  eleventyConfig.addShortcode("gallery", function (images, altPrefix, aspect) {
     if (!images || !images.length) return "";
     const label = altPrefix || "Screenshot";
     const items = images
@@ -92,7 +94,8 @@ module.exports = function (eleventyConfig) {
       </button>`;
       })
       .join("\n");
-    return `<div class="gallery">\n${items}\n</div>`;
+    const style = aspect ? ` style="--gallery-aspect: ${aspect}; --gallery-min: 160px"` : "";
+    return `<div class="gallery"${style}>\n${items}\n</div>`;
   });
 
   // A markdown paragraph containing only images (whether written on one

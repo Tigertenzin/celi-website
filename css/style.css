@@ -390,14 +390,14 @@ h2:has(+ .post-list--bare) {
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(var(--gallery-min, 110px), 1fr));
   gap: 0.6rem;
   margin: 1rem 0;
   padding: 0;
 }
 
 .gallery-item {
-  aspect-ratio: 9 / 19.5;
+  aspect-ratio: var(--gallery-aspect, 9 / 19.5);
   padding: 0;
   border: 1px solid var(--border);
   border-radius: 10px;
