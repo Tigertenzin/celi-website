@@ -451,3 +451,97 @@ h2:has(+ .post-list--bare) {
   line-height: 1;
   cursor: pointer;
 }
+
+/* Changelog pages (layouts/changelog.liquid) */
+.changelog {
+  margin: 1.5rem 0;
+}
+
+.release {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem 1.25rem 0.5rem;
+  margin: 1.25rem 0;
+}
+
+.release-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.release-header h2 {
+  margin: 0;
+}
+
+.release-status {
+  border: 1px solid var(--link);
+  color: var(--link);
+  border-radius: 999px;
+  padding: 0.1rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.release-summary {
+  color: var(--muted);
+  margin: 0.5rem 0 0;
+}
+
+.build {
+  margin-top: 1rem;
+}
+
+.build + .build {
+  border-top: 1px dashed var(--border);
+  padding-top: 1rem;
+}
+
+.build-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  font-size: 1rem;
+  margin: 0 0 0.4rem;
+}
+
+.build-date {
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: normal;
+}
+
+.changes {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.5rem;
+}
+
+.change {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  margin: 0.5rem 0;
+}
+
+.change-type {
+  /* Wide enough for the longest label, "improved", so every change's text lines up. */
+  flex: 0 0 7.2em;
+  box-sizing: border-box;
+  text-align: center;
+  border-radius: 6px;
+  padding: 0.12rem 0.4rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--change-colour);
+  background: color-mix(in srgb, var(--change-colour) 15%, transparent);
+}
+
+.change-type--new { --change-colour: var(--link); }
+.change-type--improved { --change-colour: #4f86e8; }
+.change-type--fixed { --change-colour: #2e9d6b; }

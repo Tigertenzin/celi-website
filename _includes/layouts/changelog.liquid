@@ -1,0 +1,36 @@
+---
+layout: layouts/base.liquid
+---
+{% comment %}
+  A project's changelog, from its `releases` front matter: each version, newest first, with its
+  builds and their changes. Each change has a `type` (new, improved or fixed) and `text`.
+{% endcomment %}
+{{ content }}
+
+<div class="changelog">
+{% for release in releases %}
+  <section class="release" id="v{{ release.version | slugify }}">
+    <header class="release-header">
+      <h2>Version {{ release.version }}</h2>
+      {% if release.status %}<span class="release-status">{{ release.status }}</span>{% endif %}
+    </header>
+    {% if release.summary %}<p class="release-summary">{{ release.summary }}</p>{% endif %}
+    {% for build in release.builds %}
+    <div class="build">
+      <h3 class="build-header">
+        Build {{ build.build }}
+        {% if build.date %}<span class="build-date">{{ build.date | readableDate }}</span>{% endif %}
+      </h3>
+      <ul class="changes">
+        {% for change in build.changes %}
+        <li class="change">
+          <span class="change-type change-type--{{ change.type }}">{{ change.type }}</span>
+          <span class="change-text">{{ change.text }}</span>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+  </section>
+{% endfor %}
+</div>

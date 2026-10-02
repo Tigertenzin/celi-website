@@ -69,17 +69,4 @@ _Coming soon._
 
 ## Changelog
 
-### Version 1.0 (beta)
-
-**Build 2**
-
-- Drawings now show on glassy (Clear and Tinted) Home Screens. Previously the Today widget could show a blank white card.
-- New Page setting for both widgets: Automatic, Light or Dark. Automatic follows the Home Screen's light or dark mode; Light and Dark fix the page colour, which can look better with glassy icons.
-- Previous Day, "A random day": a shuffle button jumps to a different random drawing.
-- Previous Day: the Day setting only appears where it does something. With "Cycle through favourites" it lists only favourites, and the cycle starts from the one you pick.
-- Fixed the Previous Day widget going blank when set to a dark page.
-
-**Build 1**
-
-- First TestFlight build: daily pages with a grace period, the gallery (grid, list and sketchbook), favourites, prompts and reminders, export and sharing, Year in Bloom, widgets, alternate app icons, and iCloud sync.
-- DoodleBloom Premium (the Studio and time-lapse replays) and the tip jar.
+Version 1.0 is in beta on TestFlight. See [what's new in each version and build](/projects/doodlebloom/changelog/).
