@@ -452,60 +452,54 @@ h2:has(+ .post-list--bare) {
   cursor: pointer;
 }
 
-/* Changelog pages (layouts/changelog.liquid) */
-.changelog {
-  margin: 1.5rem 0;
+/* Changelog pages (layouts/changelog.liquid). No boxes: headings and spacing mark the
+   sections. */
+.changelog h2 {
+  margin-top: 2.25rem;
 }
 
-.release {
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1rem 1.25rem 0.5rem;
-  margin: 1.25rem 0;
+.changelog-version {
+  margin: 2rem 0 2.75rem;
 }
 
-.release-header {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  flex-wrap: wrap;
+.changelog-version h2 {
+  margin: 0 0 0.25rem;
 }
 
-.release-header h2 {
-  margin: 0;
+.changelog-version h3 {
+  margin: 1.25rem 0 0.25rem;
 }
 
-.release-status {
-  border: 1px solid var(--link);
+.changelog-pending {
+  color: var(--muted);
+  margin: 0.25rem 0 0.5rem;
+}
+
+.release-notes {
+  margin: 0.5rem 0 1.25rem;
+}
+
+.release-notes-label {
+  margin: 0 0 0.25rem;
   color: var(--link);
-  border-radius: 999px;
-  padding: 0.1rem 0.6rem;
   font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.03em;
+  font-weight: 700;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
-.release-summary {
-  color: var(--muted);
-  margin: 0.5rem 0 0;
-}
-
 .build {
-  margin-top: 1rem;
+  margin: 0.2rem 0;
 }
 
-.build + .build {
-  border-top: 1px dashed var(--border);
-  padding-top: 1rem;
+.build summary {
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0.3rem 0;
 }
 
-.build-header {
-  display: flex;
-  align-items: baseline;
-  gap: 0.6rem;
-  font-size: 1rem;
-  margin: 0 0 0.4rem;
+.build[open] {
+  margin-bottom: 1rem;
 }
 
 .build-date {
@@ -514,17 +508,12 @@ h2:has(+ .post-list--bare) {
   font-weight: normal;
 }
 
-.changes {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 0.5rem;
-}
-
 .change {
+  list-style: none;
   display: flex;
   align-items: baseline;
   gap: 0.7rem;
-  margin: 0.5rem 0;
+  margin: 0.5rem 0 0.5rem -1.25rem;
 }
 
 .change-type {

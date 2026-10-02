@@ -2,6 +2,30 @@ const fs = require("fs");
 const path = require("path");
 const { feedPlugin } = require("@11ty/eleventy-plugin-rss");
 const site = require("./_data/site.json");
+const markdown = require("markdown-it")({ html: true });
+
+// "02 Oct 2026", as the readableDate filter shows dates.
+function readableDate(date) {
+  return new Date(date).toLocaleDateString("en-GB", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+    timeZone: "UTC",
+  });
+}
+
+// Changelog bullets that start "New:", "Improved:" or "Fixed:" get a coloured tag.
+function tagChanges(html) {
+  return html.replace(/<li>(New|Improved|Fixed):\s*([\s\S]*?)<\/li>/g, (_, type, text) =>
+    `<li class="change"><span class="change-type change-type--${type.toLowerCase()}">${type}</span><span class="change-text">${text}</span></li>`
+  );
+}
+
+// HTML with no blank lines: the page's own Markdown pass ends an HTML block at a blank
+// line, and would then treat the rest of a changelog box as Markdown.
+function htmlBlock(html) {
+  return html.replace(/\n\s*\n/g, "\n").trim();
+}
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("css");
@@ -39,15 +63,17 @@ module.exports = function (eleventyConfig) {
     },
   });
 
+  // Project pages are the top-level files in projects/. Pages inside a project's folder
+  // (privacy policies, changelogs) belong to that project and aren't listed themselves.
   eleventyConfig.addCollection("currentProjects", function (collectionApi) {
     return collectionApi
-      .getFilteredByGlob("projects/**/*.md")
+      .getFilteredByGlob("projects/*.md")
       .filter((project) => project.data.status !== "archived" && project.data.status !== "in-development");
   });
 
   eleventyConfig.addCollection("archivedProjects", function (collectionApi) {
     return collectionApi
-      .getFilteredByGlob("projects/**/*.md")
+      .getFilteredByGlob("projects/*.md")
       .filter((project) => project.data.status === "archived");
   });
 
@@ -72,13 +98,50 @@ module.exports = function (eleventyConfig) {
     return match ? match[1] : "";
   });
 
-  eleventyConfig.addFilter("readableDate", function (dateObj) {
-    return new Date(dateObj).toLocaleDateString("en-GB", {
-      day: "2-digit",
-      month: "short",
-      year: "numeric",
-      timeZone: "UTC",
-    });
+  eleventyConfig.addFilter("readableDate", readableDate);
+
+  // Changelogs: one file per major version (projects/<app>/changelog/v1.md, v2.md…), newest
+  // first. Each file's front matter gives its major version as `version`.
+  eleventyConfig.addCollection("changelogVersions", function (collectionApi) {
+    return collectionApi
+      .getFilteredByGlob("projects/*/changelog/v*.md")
+      .sort((a, b) => (b.data.version || 0) - (a.data.version || 0));
+  });
+
+  // {% releaseNotes %} … {% endreleaseNotes %}: a point version's finished notes, the text
+  // for the App Store's "What's New".
+  eleventyConfig.addPairedShortcode("releaseNotes", function (content) {
+    return htmlBlock(`<section class="release-notes">
+<p class="release-notes-label">Release notes</p>
+${tagChanges(markdown.render(content))}
+</section>`);
+  });
+
+  // {% build 7, "2026-11-10" %} … {% endbuild %}: one TestFlight build, collapsed until opened.
+  eleventyConfig.addPairedShortcode("build", function (content, number, date) {
+    const when = date ? ` <span class="build-date">· ${readableDate(date)}</span>` : "";
+    return htmlBlock(`<details class="build">
+<summary>Build ${number}${when}</summary>
+${tagChanges(markdown.render(content))}
+</details>`);
+  });
+
+  // A version file's content cut down to each point version's heading and release notes, for
+  // a changelog's overview page. A point version still in testing links to its builds instead.
+  eleventyConfig.addFilter("changelogSummary", function (html, url) {
+    const sections = (html || "").split(/(?=<h2[\s>])/).filter((part) => part.startsWith("<h2"));
+    return htmlBlock(
+      sections
+        .map((section) => {
+          const heading = section.match(/<h2[^>]*>[\s\S]*?<\/h2>/)[0].replace(/h2/g, "h3");
+          const notes = section.match(/<section class="release-notes">[\s\S]*?<\/section>/);
+          const body = notes
+            ? notes[0]
+            : `<p class="changelog-pending">Still in testing. <a href="${url}">See the TestFlight builds</a>.</p>`;
+          return `${heading}\n${body}`;
+        })
+        .join("\n")
+    );
   });
 
   // `aspect` is the screenshots' shape, as a CSS ratio — phone-shaped ("9 / 19.5") unless
