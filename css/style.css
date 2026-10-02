@@ -534,3 +534,174 @@ h2:has(+ .post-list--bare) {
 .change-type--new { --change-colour: var(--link); }
 .change-type--improved { --change-colour: #4f86e8; }
 .change-type--fixed { --change-colour: #2e9d6b; }
+
+/* Device galleries ({% deviceGallery %}), laid out like the App Store's: one device's
+   screenshots in a row that scrolls sideways, then the devices to choose between. Up to four
+   devices; the nth radio button shows the nth panel (the nth div — the device row comes last). */
+.device-gallery {
+  margin: 1rem 0 1.5rem;
+}
+
+.device-gallery-input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.device-gallery-panel {
+  display: none;
+  position: relative;
+}
+
+.device-gallery-track {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  padding: 0 0 0.75rem;
+  scrollbar-width: thin;
+}
+
+/* More to see: the row fades out at an edge with screenshots beyond it, and an arrow there
+   scrolls to them. */
+.device-gallery-panel::before,
+.device-gallery-panel::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0.75rem;
+  width: 3.5rem;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.device-gallery-panel::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg), transparent);
+}
+
+.device-gallery-panel::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg), transparent);
+}
+
+.device-gallery-panel.can-scroll-left::before,
+.device-gallery-panel.can-scroll-right::after {
+  opacity: 1;
+}
+
+.device-gallery-arrow {
+  position: absolute;
+  top: calc(50% - 0.375rem);
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin-top: -1.125rem;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--text);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.device-gallery-arrow--back {
+  left: 0.4rem;
+}
+
+.device-gallery-arrow--forward {
+  right: 0.4rem;
+}
+
+.device-gallery-panel.can-scroll-left .device-gallery-arrow--back,
+.device-gallery-panel.can-scroll-right .device-gallery-arrow--forward {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.device-gallery-arrow:hover {
+  color: var(--link);
+  border-color: var(--link);
+}
+
+.device-gallery-arrow svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.device-gallery-input:nth-of-type(1):checked ~ .device-gallery-panel:nth-of-type(1),
+.device-gallery-input:nth-of-type(2):checked ~ .device-gallery-panel:nth-of-type(2),
+.device-gallery-input:nth-of-type(3):checked ~ .device-gallery-panel:nth-of-type(3),
+.device-gallery-input:nth-of-type(4):checked ~ .device-gallery-panel:nth-of-type(4) {
+  display: block;
+}
+
+.device-gallery-track .gallery-item {
+  flex: 0 0 auto;
+  width: min(var(--gallery-width, 200px), 85%);
+  aspect-ratio: var(--gallery-aspect, 9 / 19.5);
+  scroll-snap-align: start;
+  border-radius: 14px;
+}
+
+.device-gallery-track .gallery-item img {
+  object-fit: contain;
+}
+
+/* The devices, under the screenshots: a row of icons and names, the chosen one in full colour. */
+.device-gallery-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: 0.25rem;
+}
+
+.device-gallery-tabs label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.device-gallery-tabs label:hover {
+  color: var(--link);
+}
+
+.device-gallery-tabs svg {
+  width: 1.15em;
+  height: 1.15em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.device-gallery-input:nth-of-type(1):checked ~ .device-gallery-tabs label:nth-of-type(1),
+.device-gallery-input:nth-of-type(2):checked ~ .device-gallery-tabs label:nth-of-type(2),
+.device-gallery-input:nth-of-type(3):checked ~ .device-gallery-tabs label:nth-of-type(3),
+.device-gallery-input:nth-of-type(4):checked ~ .device-gallery-tabs label:nth-of-type(4) {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.device-gallery-input:focus-visible ~ .device-gallery-tabs {
+  outline: 2px solid var(--link);
+  outline-offset: 4px;
+  border-radius: 6px;
+}

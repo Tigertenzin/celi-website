@@ -4,6 +4,7 @@ title: DoodleBloom
 date: 2026-09-28
 status: in-development
 icon: /projects/attachments/doodleBloom-appIcon.png
+subtitle: "A daily drawing app for iPhone and iPad. One page a day, with only a gentle nudge to draw and no streaks."
 tags:
   - ios
   - swift
@@ -14,6 +15,10 @@ screenshots:
 ---
 
 **Status: In beta (TestFlight) — not yet released.**
+
+## My Motivation
+
+_Coming soon._
 
 ## Description
 
@@ -62,10 +67,6 @@ Everything else is free, with an optional tip jar if you'd like to say thanks.
 ## Screenshots
 
 {% gallery screenshots "DoodleBloom screenshot" "3 / 4" %}
-
-## My Motivation
-
-_Coming soon._
 
 ## Changelog
 

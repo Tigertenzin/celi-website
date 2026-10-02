@@ -161,6 +161,54 @@ ${tagChanges(markdown.render(content))}
     return `<div class="gallery"${style}>\n${items}\n</div>`;
   });
 
+  // {% deviceGallery deviceScreenshots, "Waypoint Journal" %}: screenshots for several devices,
+  // shown as the App Store shows them: one device's screenshots in a row that scrolls sideways,
+  // with the devices to choose between underneath. `devices` is a list of
+  // { name, aspect, width, images }: the images' shape as a CSS ratio, and how wide they show.
+  // Switching devices is plain radio buttons and CSS; a small script in the base layout adds
+  // the scroll arrows and edge fades. Each image still opens in the lightbox.
+  const deviceIcons = {
+    iPhone: '<rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M10.5 5h3"/>',
+    iPad: '<rect x="4" y="2.5" width="16" height="19" rx="2"/><path d="M11 18.5h2"/>',
+    Mac: '<rect x="4" y="4.5" width="16" height="11" rx="1.5"/><path d="M2 19h20"/>',
+    "Apple Watch": '<rect x="7" y="6" width="10" height="12" rx="3"/><path d="M9 6V2.5h6V6M9 18v3.5h6V18"/>',
+  };
+  let deviceGalleryCount = 0;
+  eleventyConfig.addShortcode("deviceGallery", function (devices, altPrefix) {
+    if (!devices || !devices.length) return "";
+    const group = `device-gallery-${++deviceGalleryCount}`;
+    const label = altPrefix || "Screenshot";
+    const inputs = devices
+      .map((device, i) => `<input type="radio" class="device-gallery-input" name="${group}" id="${group}-${i}"${i === 0 ? " checked" : ""}>`)
+      .join("\n");
+    const panels = devices
+      .map((device) => {
+        const items = device.images
+          .map((src, i) => {
+            const alt = `${label} on ${device.name}, screenshot ${i + 1}`;
+            return `<button type="button" class="gallery-item" data-full="${src}" data-alt="${alt}" aria-label="Open ${alt} full size"><img src="${src}" alt="${alt}" loading="lazy"></button>`;
+          })
+          .join("\n");
+        // Starts out showing it scrolls on; the page's script keeps that up to date, and adds
+        // a fade and an arrow at the start once there's something to go back to.
+        return `<div class="device-gallery-panel can-scroll-right" style="--gallery-aspect: ${device.aspect}; --gallery-width: ${device.width || "200px"}">
+<div class="device-gallery-track">\n${items}\n</div>
+<button type="button" class="device-gallery-arrow device-gallery-arrow--back" data-scroll="-1" aria-label="Previous screenshots"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6"/></svg></button>
+<button type="button" class="device-gallery-arrow device-gallery-arrow--forward" data-scroll="1" aria-label="More screenshots"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 6l6 6-6 6"/></svg></button>
+</div>`;
+      })
+      .join("\n");
+    const tabs = devices
+      .map((device, i) => {
+        const icon = deviceIcons[device.name]
+          ? `<svg viewBox="0 0 24 24" aria-hidden="true">${deviceIcons[device.name]}</svg>`
+          : "";
+        return `<label for="${group}-${i}">${icon}${device.name}</label>`;
+      })
+      .join("\n");
+    return `<div class="device-gallery">\n${inputs}\n${panels}\n<div class="device-gallery-tabs" role="group" aria-label="Screenshots for">\n${tabs}\n</div>\n</div>`;
+  });
+
   // A markdown paragraph containing only images (whether written on one
   // line, or on consecutive lines with no blank line between them, which
   // CommonMark still joins into one paragraph) is turned into a

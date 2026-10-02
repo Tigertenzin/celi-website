@@ -5,6 +5,39 @@ date: 2026-08-31
 status: in-development
 icon: /projects/attachments/waypointJournal-appIcon.png
 subtitle: "An app that helps you easily make note of the places you visit. Built for easily remembering the names of locations, with options for exporting into Obsidian or any other system you might use."
+deviceScreenshots:
+  - name: iPhone
+    aspect: "110 / 239"
+    width: "212px"
+    images:
+      - /projects/attachments/waypoint-journal/iphone-1.webp
+      - /projects/attachments/waypoint-journal/iphone-2.webp
+      - /projects/attachments/waypoint-journal/iphone-3.webp
+      - /projects/attachments/waypoint-journal/iphone-4.webp
+      - /projects/attachments/waypoint-journal/iphone-5.webp
+      - /projects/attachments/waypoint-journal/iphone-6.webp
+      - /projects/attachments/waypoint-journal/iphone-7.webp
+  - name: iPad
+    aspect: "4 / 3"
+    width: "453px"
+    images:
+      - /projects/attachments/waypoint-journal/ipad-1.webp
+      - /projects/attachments/waypoint-journal/ipad-2.webp
+      - /projects/attachments/waypoint-journal/ipad-3.webp
+      - /projects/attachments/waypoint-journal/ipad-4.webp
+      - /projects/attachments/waypoint-journal/ipad-5.webp
+      - /projects/attachments/waypoint-journal/ipad-6.webp
+      - /projects/attachments/waypoint-journal/ipad-7.webp
+  - name: Mac
+    aspect: "8 / 5"
+    width: "512px"
+    images:
+      - /projects/attachments/waypoint-journal/mac-1.webp
+      - /projects/attachments/waypoint-journal/mac-2.webp
+      - /projects/attachments/waypoint-journal/mac-3.webp
+      - /projects/attachments/waypoint-journal/mac-4.webp
+      - /projects/attachments/waypoint-journal/mac-5.webp
+      - /projects/attachments/waypoint-journal/mac-6.webp
 tags:
   - ios
   - macos
@@ -52,7 +85,7 @@ Waypoint Journal remembers where you've been, so your journal doesn't have to re
 
 ## Screenshots
 
-_Coming soon._
+{% deviceGallery deviceScreenshots, "Waypoint Journal" %}
 
 ## Changelog
 

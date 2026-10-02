@@ -113,6 +113,44 @@
   </script>
 
   <script>
+    // Device galleries: keep each row's edge fades and arrows in step with where it's scrolled
+    // to, and scroll it by most of a screen when an arrow is pressed.
+    (function () {
+      var panels = document.querySelectorAll(".device-gallery-panel");
+      if (!panels.length) return;
+
+      function update(panel) {
+        var track = panel.querySelector(".device-gallery-track");
+        var max = track.scrollWidth - track.clientWidth;
+        panel.classList.toggle("can-scroll-left", track.scrollLeft > 4);
+        panel.classList.toggle("can-scroll-right", max > 4 && track.scrollLeft < max - 4);
+      }
+
+      function updateAll() {
+        panels.forEach(update);
+      }
+
+      panels.forEach(function (panel) {
+        var track = panel.querySelector(".device-gallery-track");
+        track.addEventListener("scroll", function () { update(panel); }, { passive: true });
+        panel.querySelectorAll(".device-gallery-arrow").forEach(function (arrow) {
+          arrow.addEventListener("click", function () {
+            track.scrollBy({ left: Number(arrow.dataset.scroll) * track.clientWidth * 0.8, behavior: "smooth" });
+          });
+        });
+      });
+
+      // A panel has no size while hidden, so check again when another device is chosen.
+      document.querySelectorAll(".device-gallery-input").forEach(function (input) {
+        input.addEventListener("change", updateAll);
+      });
+      window.addEventListener("resize", updateAll);
+      window.addEventListener("load", updateAll);
+      updateAll();
+    })();
+  </script>
+
+  <script>
     (function () {
       var root = document.documentElement;
       var btn = document.getElementById("theme-toggle");
