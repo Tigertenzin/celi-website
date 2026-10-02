@@ -28,6 +28,13 @@ function htmlBlock(html) {
 }
 
 module.exports = function (eleventyConfig) {
+  // The stylesheet's link carries a hash of its contents (`/css/style.css?v=…`), so a browser
+  // or CDN holding an older copy fetches the new one as soon as it changes, instead of
+  // pairing new pages with old styles.
+  eleventyConfig.addGlobalData("styleVersion", () =>
+    require("crypto").createHash("sha256").update(fs.readFileSync(path.join(__dirname, "css/style.css"))).digest("hex").slice(0, 10)
+  );
+
   eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy("favicon.svg");
   eleventyConfig.addPassthroughCopy("_redirects");
@@ -183,10 +190,13 @@ ${tagChanges(markdown.render(content))}
       .join("\n");
     const panels = devices
       .map((device) => {
+        // The image carries its own shape (width and height from `aspect`), so it lays out at
+        // the right size before it loads; it's sized on the image, not the button around it.
+        const [ratioW, ratioH] = String(device.aspect || "9 / 19.5").split("/").map((n) => n.trim());
         const items = device.images
           .map((src, i) => {
             const alt = `${label} on ${device.name}, screenshot ${i + 1}`;
-            return `<button type="button" class="gallery-item" data-full="${src}" data-alt="${alt}" aria-label="Open ${alt} full size"><img src="${src}" alt="${alt}" loading="lazy"></button>`;
+            return `<button type="button" class="gallery-item" data-full="${src}" data-alt="${alt}" aria-label="Open ${alt} full size"><img src="${src}" alt="${alt}" width="${ratioW}" height="${ratioH}" loading="lazy" decoding="async"></button>`;
           })
           .join("\n");
         // Starts out showing it scrolls on; the page's script keeps that up to date, and adds

@@ -423,7 +423,7 @@ h2:has(+ .post-list--bare) {
   border-radius: 12px;
   padding: 0;
   background: var(--bg);
-  max-width: min(90vw, 480px);
+  max-width: min(92vw, 1400px);
   max-height: 90vh;
 }
 
@@ -651,14 +651,15 @@ h2:has(+ .post-list--bare) {
 
 .device-gallery-track .gallery-item {
   flex: 0 0 auto;
-  width: min(var(--gallery-width, 200px), 85%);
-  aspect-ratio: var(--gallery-aspect, 9 / 19.5);
+  aspect-ratio: auto;
   scroll-snap-align: start;
   border-radius: 14px;
 }
 
 .device-gallery-track .gallery-item img {
-  object-fit: contain;
+  display: block;
+  width: min(var(--gallery-width, 200px), 80vw);
+  height: auto;
 }
 
 /* The devices, under the screenshots: a row of icons and names, the chosen one in full colour. */
