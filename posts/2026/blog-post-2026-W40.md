@@ -8,6 +8,7 @@ tags:
 title: spooky month already? an update
 date: 2026-10-04
 layout: layouts/base.liquid
+thumbnail: /posts/attachments/pasted-image-20261004111325.jpeg
 ---
 
 
