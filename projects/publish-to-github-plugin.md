@@ -13,7 +13,11 @@ tags:
 
 ## Motivation
 
-(to be written later…)
+I developed this when I started writing this blog, and wanted a way to publish from where I wrote (Obsidian) to GitHub (where my website files live). The beauty of Obsidian is that there's a huge array of community run and developed plugins to make it do exactly what anyone could want. Except, I couldn't find a plugin that worked for my exact publishing workflow (some publishing to GitHub ones existed, but didn't do quite what I wanted). So I created it myself, with the help of Claude Code since I'm still relatively new to coding for Obsidian.
+
+What I wanted was pretty simple, since both Obsidian and my blog, which is built using Eleventy, are based on markdown files. So all I really needed was a plugin that could upload my markdown files, while altering the properties at the top of each post and handling any attachments. And that's what I tried to create here!
+
+It's very tailored towards my exact needs, so if you use it, I can't guarantee it'll do what you need it to. But who knows, maybe it will!
 
 {% raw %}
 ## Features
