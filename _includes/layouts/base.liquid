@@ -62,7 +62,9 @@
       {% if subtitle %}<p class="subtitle">{{ subtitle }}</p>{% endif %}
     </div>
     {% endunless %}
-    {% if date %}<p class="date">{{ date | readableDate }}</p>{% endif %}
+    {%- assign release = nil -%}
+    {%- if github -%}{%- assign release = latestReleases[github] -%}{%- endif -%}
+    {% if date %}<p class="date">{% if release %}Started {{ date | readableDate }} · Last updated {{ release.date | readableDate }} ({{ release.version }}){% else %}{{ date | readableDate }}{% endif %}</p>{% endif %}
     {{ content }}
   </main>
 

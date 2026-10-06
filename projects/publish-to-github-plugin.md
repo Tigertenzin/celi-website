@@ -7,6 +7,7 @@ icon:
 subtitle: "An obsidian plugin for publishing my blog posts straight to GitHub. It rewrites the properties, trims off everything below the break, and uploads the post and its images together in a single commit, all in just a few steps."
 tags:
   - obsidian
+github: Tigertenzin/obsidian-publish-to-github
 ---
 
 **Status: Release (0.2.0) — not submitted to Community Plugins. Requires Obsidian 1.11.4 or later.**
