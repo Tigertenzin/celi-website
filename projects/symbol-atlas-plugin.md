@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.liquid
-title: Symbol Atlas Plugin
+title: "Obsidian Plugin - Symbol Atlas"
 date: 2026-08-19
 status: release
 icon: 
