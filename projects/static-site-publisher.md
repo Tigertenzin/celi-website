@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.liquid
-title: Static Site Publisher
+title: "Obsidian Plugin - Static Site Publisher"
 date: 2026-09-04
 updated: 2026-10-06
 status: release
