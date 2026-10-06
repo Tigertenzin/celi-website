@@ -11,26 +11,27 @@ tags:
 
 **Status: Release (0.2.0) — not submitted to Community Plugins. Requires Obsidian 1.11.4 or later.**
 
-## methodology
+## Motivation
 
 (to be written later…)
 
 {% raw %}
 ## Features
 
-- Publishes the active note to a configured repo, branch and folder via one command — the note in your vault is never modified.
-- The post and its images go up together in a single commit, so they land together or not at all. A failed publish leaves the repo exactly as it was.
-- A review window listing every property the published copy will carry. Change any value, rename or retype any property, drop one, or add a new one, all for that one publish.
-- Properties to add and properties to remove are set up in settings, and act as the defaults the review window starts from. Default values can use placeholders like `{{date}}`, `{{slug}}` or `{{date:MMMM D, YYYY}}`.
-- Everything from the first break marker onwards (`---` by default) is left out, so working notes below the rule stay in the vault. A `---` inside a code block or under a heading doesn't count, and the review window says which line it found and how much it's about to cut.
-- Obsidian-only syntax is converted for the web: comments (`%% … %%`) are removed, `==highlights==` become `<mark>`, and links to other notes become plain text, with a warning listing each one in case it was meant to link somewhere on the site.
-- Embedded images are uploaded into a folder of their own for each post, and rewritten from `![[image.png|450]]` into something the site can actually render — with the size preserved and an alt text field. Videos and audio become players, and PDFs become links.
-- The preview shows exactly what will change: each image is marked new, changed, or unchanged, and an unchanged post isn't committed again.
-- Publishing over an existing post shows a diff against what's currently live, and takes a separate confirmation before overwriting it. If the post changed on GitHub in the meantime, nothing is committed.
-- The filename is editable at publish time, since notes tend to be titled one way in the vault and another on the site. It starts from a template (`{{slug}}.md`, say), and after the first publish it's remembered, so republishing always goes back to the same file.
-- The GitHub token is kept in Obsidian's secret storage on your device, not in the vault, so backups and sync never copy it.
-- When a publish succeeds, the notice links straight to the commit and the post on GitHub.
-- Property names, property values and repository folders are all suggested from what already exists, rather than being typed from memory.
+- **Publish with one command.** The active note goes straight to your repo, branch and folder, and the note in your vault is never touched.
+  - The post and its images go up together in a single commit, so nothing is ever left half-published.
+  - Republishing over a live post shows you a diff first, and asks before overwriting it.
+- **Review everything before it goes out.** A review window shows every property the published copy will carry, and lets you change, add or drop any of them for that one publish.
+  - Settings decide which properties are added or removed by default, with placeholders like `{{date}}` and `{{slug}}` for values.
+  - Property names, values and repo folders are suggested from what you already use.
+- **Cleaned up for the web.**
+  - Anything below a break marker stays private in your vault.
+  - Obsidian-only syntax like comments, highlights and links to other notes is converted into something a website understands.
+- **Images taken care of.**
+  - Embedded images, videos, audio and PDFs are uploaded alongside the post, in a folder of their own, and rewritten into embeds the site can display.
+- **Your GitHub token stays safe.** It's kept in Obsidian's secret storage on your device, never in your vault.
+
+For the full breakdown of how every feature works, see the [plugin's README on GitHub](https://github.com/Tigertenzin/obsidian-publish-to-github#readme).
 
 ## What's new in 0.2.0
 
