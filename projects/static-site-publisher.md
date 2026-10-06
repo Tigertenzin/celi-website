@@ -10,7 +10,7 @@ tags:
   - obsidian
 ---
 
-**Status: Release (0.2.2) — not submitted to Community Plugins. Requires Obsidian 1.11.4 or later.**
+**Status: Release (0.3.0) — not submitted to Community Plugins. Requires Obsidian 1.11.4 or later.**
 
 *Formerly called Publish to GitHub.*
 
@@ -38,9 +38,9 @@ It's very tailored towards my exact needs, so if you use it, I can't guarantee i
   - Embedded images, videos, audio and PDFs are uploaded alongside the post, in a folder of their own, and rewritten into embeds the site can display.
 - **Your GitHub token stays safe.** It's kept in Obsidian's secret storage on your device, never in your vault.
 
-For the full breakdown of how every feature works, see the [plugin's README on GitHub](https://github.com/Tigertenzin/obsidian-publish-to-github#readme).
+For the full breakdown of how every feature works, see the [plugin's README on GitHub](https://github.com/Tigertenzin/obsidian-static-site-publisher#readme).
 
 ## What's new in 0.2.0
 
-The biggest update so far: posts and their images now publish in one commit, the token moved into Obsidian's secret storage, Obsidian syntax gets converted for the web, filenames and property defaults can use placeholders, and sixteen bugs got fixed — including images from different posts overwriting each other. Full notes are on the [0.2.0 release](https://github.com/Tigertenzin/obsidian-publish-to-github/releases/tag/0.2.0).
+The biggest update so far: posts and their images now publish in one commit, the token moved into Obsidian's secret storage, Obsidian syntax gets converted for the web, filenames and property defaults can use placeholders, and sixteen bugs got fixed — including images from different posts overwriting each other. Full notes are on the [0.2.0 release](https://github.com/Tigertenzin/obsidian-static-site-publisher/releases/tag/0.2.0).
 {% endraw %}
