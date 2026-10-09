@@ -2,7 +2,8 @@
 layout: layouts/base.liquid
 title: DoodleBloom
 date: 2026-09-28
-status: beta
+# Unlisted until the public TestFlight beta opens and the launch post is ready; then `beta`.
+status: in-development
 # The public TestFlight link, shown in the status line once it is set.
 testflight: "https://testflight.apple.com/join/HPCEeByd"
 icon: /projects/attachments/doodleBloom-appIcon.png

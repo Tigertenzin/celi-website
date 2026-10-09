@@ -9,7 +9,7 @@ eleventyExcludeFromCollections: true
 # Privacy Policy
 
 **DoodleBloom**
-_Last updated: 27 September 2026_
+_Last updated: 9 October 2026_
 
 DoodleBloom is a daily drawing app for iPhone and iPad. This policy explains what happens to your information when you use DoodleBloom, including
 DoodleBloom Premium and the tip jar.
@@ -29,7 +29,8 @@ DoodleBloom stores the things you create and the choices you make in the app:
 - your daily drawings, and the images made from them
 - page details such as titles, favourites, the page template, and the day's drawing prompt
 - Studio pieces (copies of drawings you continue working on)
-- your settings, such as reminder times, the grace period, your gallery layout, and your app icon
+- your settings, such as reminder times, the grace period, your gallery layout, your app icon, and
+  your tint colour
 
 This information is stored **on your device**. It's also kept in a storage area shared with the
 DoodleBloom widgets on the same device, so they can show your drawings on your Home Screen.
@@ -61,6 +62,14 @@ When you share or export a drawing, a time-lapse replay, or a Year in Bloom post
 creates the file on your device and hands it to the iOS share sheet. You choose where it goes.
 From then on, the app or service you share with handles it under its own privacy policy.
 DoodleBloom deletes its temporary copies of these files once you're done with them.
+
+### Backups
+
+A backup, made in **Settings › Back up and restore**, is a single file containing your drawings,
+Studio pieces, and app settings. It's saved wherever you choose, such as your device, iCloud
+Drive, or another storage service, and DoodleBloom never uploads it anywhere itself. Anyone you
+give the file to can see your drawings. Restoring reads a backup file you pick, and only on your
+device.
 
 ## DoodleBloom Premium and the tip jar
 
@@ -112,6 +121,14 @@ If you've chosen to share analytics with app developers in your device's setting
 aggregated usage statistics. Apple doesn't identify you in them, and we use them only to find and
 fix problems in DoodleBloom. You can turn this sharing off in the same place at any time.
 
+### Beta testing with TestFlight
+
+If you test a DoodleBloom beta through Apple's TestFlight, Apple shares with us the feedback you
+choose to send, including any screenshots and comments, and crash reports from the beta. Apple
+handles TestFlight under its own terms and
+[privacy policy](https://www.apple.com/legal/privacy/), and you can stop testing at any time in
+the TestFlight app. We use what beta testers send only to improve DoodleBloom.
+
 ## Children
 
 DoodleBloom isn't directed at children under 13, and we don't knowingly collect personal
@@ -125,8 +142,11 @@ none to collect from children either.
 - **Delete everything on a device:** deleting DoodleBloom removes its data from that device.
 - **Delete your iCloud data:** go to **Settings › [your name] › iCloud › Manage Account
   Storage**, choose DoodleBloom, and delete its data.
+- **Delete a backup:** backup files are yours, wherever you saved them. Delete them there, like any
+  other file.
 
-Since we never receive your data, we have nothing to keep or delete on our side.
+Since we never receive your data, we have nothing to keep or delete on our side, apart from any
+email you send us.
 
 ## Your privacy rights
 
@@ -156,3 +176,6 @@ before it takes effect.
 ## Contact
 
 Questions about privacy: **oaksParceliOS@gmail.com**
+
+If you email us, with questions or beta feedback, we use your message and email address only to
+reply to you and to improve DoodleBloom, and we don't share them.
