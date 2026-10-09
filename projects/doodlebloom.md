@@ -8,10 +8,34 @@ subtitle: "A daily drawing app for iPhone and iPad. One page a day, with only a 
 tags:
   - ios
   - swift
-screenshots:
-  - /projects/attachments/doodleBloom-v1-img1.webp
-  - /projects/attachments/doodleBloom-v1-img2.webp
-  - /projects/attachments/doodleBloom-v1-img3.webp
+deviceScreenshots:
+  - name: iPhone
+    aspect: "110 / 239"
+    width: "212px"
+    images:
+      - /projects/attachments/doodlebloom/iphone-1.webp
+      - /projects/attachments/doodlebloom/iphone-2.webp
+      - /projects/attachments/doodlebloom/iphone-3.webp
+      - /projects/attachments/doodlebloom/iphone-4.webp
+      - /projects/attachments/doodlebloom/iphone-5.webp
+  - name: iPad
+    aspect: "3 / 4"
+    width: "345px"
+    images:
+      - /projects/attachments/doodlebloom/ipad-1.webp
+      - /projects/attachments/doodlebloom/ipad-2.webp
+      - /projects/attachments/doodlebloom/ipad-3.webp
+      - /projects/attachments/doodlebloom/ipad-4.webp
+      - /projects/attachments/doodlebloom/ipad-5.webp
+  - name: iPhone Duo
+    aspect: "2853 / 2007"
+    width: "480px"
+    images:
+      - /projects/attachments/doodlebloom/duo-1.webp
+      - /projects/attachments/doodlebloom/duo-2.webp
+      - /projects/attachments/doodlebloom/duo-3.webp
+      - /projects/attachments/doodlebloom/duo-4.webp
+      - /projects/attachments/doodlebloom/duo-5.webp
 ---
 
 **Status: In beta (TestFlight) — not yet released.**
@@ -66,7 +90,7 @@ Everything else is free, with an optional tip jar if you'd like to say thanks.
 
 ## Screenshots
 
-{% gallery screenshots "DoodleBloom screenshot" "3 / 4" %}
+{% deviceGallery deviceScreenshots, "DoodleBloom" %}
 
 ## Changelog
 
