@@ -223,6 +223,17 @@ a:visited {
   flex-shrink: 0;
 }
 
+/* A project's banner, across the top of its page: wide, like an App Store product page header. */
+.page-banner {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 21 / 9;
+  object-fit: cover;
+  border-radius: 14px;
+  margin: 0 0 1.5rem;
+}
+
 .page-header--icon {
   margin-bottom: 0.5rem;
   overflow: hidden;

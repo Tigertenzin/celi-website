@@ -6,8 +6,9 @@
   <title>{{ title }} — My Site</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   {% assign pageDescription = description | default: subtitle | default: site.description %}
-  {% assign ogImage = icon %}
-  {% unless icon %}
+  {%- comment -%} A wide banner makes the best link preview; then the icon; then a screenshot. {%- endcomment -%}
+  {% assign ogImage = bannerShare | default: banner | default: icon %}
+  {% unless ogImage %}
     {% if screenshots and screenshots.size > 0 %}
       {% assign ogImage = screenshots[0] %}
     {% endif %}
@@ -55,6 +56,8 @@
   </header>
 
   <main>
+    {%- comment -%} An optional `banner:` across the top, as an App Store product page has. {%- endcomment -%}
+    {% if banner %}<img class="page-banner" src="{{ banner }}" alt="{{ bannerAlt }}">{% endif %}
     {% unless hideTitle %}
     <div class="page-header{% if icon %} page-header--icon{% endif %}">
       {% if icon %}<img class="app-icon" src="{{ icon }}" alt="">{% endif %}

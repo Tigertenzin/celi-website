@@ -2,8 +2,13 @@
 layout: layouts/base.liquid
 title: DoodleBloom
 date: 2026-09-28
-status: in-development
+status: beta
+# The public TestFlight link, shown in the status line once it is set.
+testflight: "https://testflight.apple.com/join/HPCEeByd"
 icon: /projects/attachments/doodleBloom-appIcon.png
+banner: /projects/attachments/doodlebloom/banner.webp
+bannerShare: /projects/attachments/doodlebloom/banner-share.jpg
+bannerAlt: "Drawings from a year of DoodleBloom pages, scattered around the words: Draw every day. Watch it grow."
 subtitle: "A daily drawing app for iPhone and iPad. One page a day, with only a gentle nudge to draw and no streaks."
 tags:
   - ios
@@ -38,11 +43,7 @@ deviceScreenshots:
       - /projects/attachments/doodlebloom/duo-5.webp
 ---
 
-**Status: In beta (TestFlight) — not yet released.**
-
-## My Motivation
-
-_Coming soon._
+**Status: In beta (TestFlight) — open to everyone.{% if testflight != "" %} [Join the public beta]({{ testflight }}).{% endif %}**
 
 ## Description
 
