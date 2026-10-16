@@ -9,7 +9,7 @@ eleventyExcludeFromCollections: true
 # Privacy Policy
 
 **DoodleBloom**
-_Last updated: 9 October 2026_
+_Last updated: 14 October 2026_
 
 DoodleBloom is a daily drawing app for iPhone and iPad. This policy explains what happens to your information when you use DoodleBloom, including
 DoodleBloom Premium and the tip jar.
@@ -65,11 +65,18 @@ DoodleBloom deletes its temporary copies of these files once you're done with th
 
 ### Backups
 
-A backup, made in **Settings › Back up and restore**, is a single file containing your drawings,
-Studio pieces, and app settings. It's saved wherever you choose, such as your device, iCloud
-Drive, or another storage service, and DoodleBloom never uploads it anywhere itself. Anyone you
-give the file to can see your drawings. Restoring reads a backup file you pick, and only on your
-device.
+A backup is a single file containing your drawings, Studio pieces, and app settings.
+
+- **Nightly backups:** unless you turn them off in **Settings › Backup**, DoodleBloom saves a
+  backup each night while your device charges, to the DoodleBloom folder in your iCloud Drive.
+  If iCloud Drive is off, it's kept on the device instead. The last 7 from each device are kept,
+  and older ones are deleted. Like the rest of your iCloud Drive, they're stored by Apple in your
+  account, and we have no access to them.
+- **Back Up Now** saves a backup wherever you choose, such as your device, iCloud Drive, or
+  another storage service.
+
+Anyone you give a backup file to can see your drawings. Restoring reads a backup you pick, and
+only on your device.
 
 ## DoodleBloom Premium and the tip jar
 
@@ -143,7 +150,7 @@ none to collect from children either.
 - **Delete your iCloud data:** go to **Settings › [your name] › iCloud › Manage Account
   Storage**, choose DoodleBloom, and delete its data.
 - **Delete a backup:** backup files are yours, wherever you saved them. Delete them there, like any
-  other file.
+  other file. Nightly backups are in the DoodleBloom folder in iCloud Drive, in the Files app.
 
 Since we never receive your data, we have nothing to keep or delete on our side, apart from any
 email you send us.
