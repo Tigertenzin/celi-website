@@ -29,8 +29,13 @@
   <meta name="twitter:description" content="{{ pageDescription }}">
   {% if ogImage %}<meta name="twitter:image" content="{{ site.url }}{{ ogImage }}">{% endif %}
   <script>
+    // The site follows the device's light or dark mode. The toggle overrides it for this visit
+    // only (sessionStorage), so a choice made once never pins the site against the device. Older
+    // versions kept the choice in localStorage forever; that is cleared here.
     (function () {
-      var stored = localStorage.getItem("theme");
+      try { localStorage.removeItem("theme"); } catch (e) {}
+      var stored = null;
+      try { stored = sessionStorage.getItem("theme"); } catch (e) {}
       if (stored === "light" || stored === "dark") {
         document.documentElement.setAttribute("data-theme", stored);
       }
@@ -172,15 +177,27 @@
         btn.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
       }
 
+      function followDevice() {
+        root.removeAttribute("data-theme");
+        try { sessionStorage.removeItem("theme"); } catch (e) {}
+      }
+
       btn.addEventListener("click", function () {
         var next = currentTheme() === "dark" ? "light" : "dark";
-        root.setAttribute("data-theme", next);
-        localStorage.setItem("theme", next);
+        // Back to what the device shows: no override needed, so later changes are followed.
+        if (next === (mql.matches ? "dark" : "light")) {
+          followDevice();
+        } else {
+          root.setAttribute("data-theme", next);
+          try { sessionStorage.setItem("theme", next); } catch (e) {}
+        }
         render();
       });
 
+      // The device switching modes (by hand, or automatically at sunset) wins over the toggle.
       mql.addEventListener("change", function () {
-        if (!localStorage.getItem("theme")) render();
+        followDevice();
+        render();
       });
 
       render();

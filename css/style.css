@@ -1,4 +1,6 @@
 :root {
+  /* Scrollbars and form controls follow the page's mode too. */
+  color-scheme: light;
   --bg: #fdf8f9;
   --text: #222222;
   --muted: #767676;
@@ -8,6 +10,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
+    color-scheme: dark;
     --bg: #3b3036;
     --text: #e8e8e8;
     --muted: #9a9a9a;
@@ -17,6 +20,7 @@
 }
 
 :root[data-theme="dark"] {
+  color-scheme: dark;
   --bg: #3b3036;
   --text: #e8e8e8;
   --muted: #9a9a9a;
