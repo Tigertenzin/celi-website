@@ -9,14 +9,14 @@ testflight: "https://testflight.apple.com/join/HPCEeByd"
 icon: /projects/attachments/doodleBloom-appIcon.png
 banner: /projects/attachments/doodlebloom/banner.webp
 bannerShare: /projects/attachments/doodlebloom/banner-share.jpg
-bannerAlt: "Drawings from a year of DoodleBloom pages, scattered around the words: Draw every day. Watch it grow."
+bannerAlt: "An iPad showing a DoodleBloom page, with an Apple Pencil resting on the drawing, beside drawings on cards and the words: Draw every day. Watch it grow."
 subtitle: "A daily drawing app for iPhone and iPad. One page a day, with only a gentle nudge to draw and no streaks."
 tags:
   - ios
   - swift
 deviceScreenshots:
   - name: iPhone
-    aspect: "110 / 239"
+    aspect: "201 / 437"
     width: "212px"
     images:
       - /projects/attachments/doodlebloom/iphone-1.webp
