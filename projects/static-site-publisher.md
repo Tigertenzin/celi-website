@@ -2,7 +2,7 @@
 layout: layouts/base.liquid
 title: "Obsidian Plugin - Static Site Publisher"
 date: 2026-09-04
-updated: 2026-10-06
+updated: 2026-10-19
 status: release
 icon: 
 subtitle: "An obsidian plugin for publishing my blog posts straight to GitHub. It rewrites the properties, trims off everything below the break, and uploads the post and its images together in a single commit, all in just a few steps."
@@ -10,7 +10,7 @@ tags:
   - obsidian
 ---
 
-**Status: Release (0.3.0) — not submitted to Community Plugins. Requires Obsidian 1.11.4 or later.**
+**Status: Release (0.4.0) — not submitted to Community Plugins. Requires Obsidian 1.11.4 or later.**
 
 *Formerly called Publish to GitHub.*
 
@@ -36,11 +36,15 @@ It's very tailored towards my exact needs, so if you use it, I can't guarantee i
   - Obsidian-only syntax like comments, highlights and links to other notes is converted into something a website understands.
 - **Images taken care of.**
   - Embedded images, videos, audio and PDFs are uploaded alongside the post, in a folder of their own, and rewritten into embeds the site can display.
+  - Photos and screenshots are converted to JPEG or WebP and shrunk before they go up, so a 5 MB iPhone photo lands at around 150 KB. GIFs are left alone so they keep moving, and the original in your vault is never changed.
+  - Every image gets its own format and quality controls in the review window, with a preview of the result and its size before and after.
 - **Your GitHub token stays safe.** It's kept in Obsidian's secret storage on your device, never in your vault.
 
 For the full breakdown of how every feature works, see the [plugin's README on GitHub](https://github.com/Tigertenzin/obsidian-static-site-publisher#readme).
 
-## What's new in 0.2.0
+## What's new in 0.4.0
 
-The biggest update so far: posts and their images now publish in one commit, the token moved into Obsidian's secret storage, Obsidian syntax gets converted for the web, filenames and property defaults can use placeholders, and sixteen bugs got fixed — including images from different posts overwriting each other. Full notes are on the [0.2.0 release](https://github.com/Tigertenzin/obsidian-static-site-publisher/releases/tag/0.2.0).
+Image compression! Photos from my iPhone are several megabytes each, which is way too heavy for a web page, and GitHub kept warning me about them. So now the plugin converts images to JPEG (or WebP) and scales them down before uploading. Each image in the review window gets a **Convert** button and its own format and quality settings, and there's a **Convert all images** button with a progress bar for doing them all at once.
+
+It converts one image at a time on purpose, since processing a whole post's worth of full-size photos at once could use enough memory to crash Obsidian on a phone. It's also a little smart about it: images with transparency switch to WebP so they don't get a white background, and anything that would come out bigger just gets uploaded as it was. This release also fixes date fields in the review window shrinking to a thin line on iPhone and iPad. Full notes are on the [0.4.0 release](https://github.com/Tigertenzin/obsidian-static-site-publisher/releases/tag/0.4.0).
 {% endraw %}
