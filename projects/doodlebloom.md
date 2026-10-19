@@ -1,9 +1,10 @@
 ---
-layout: layouts/base.liquid
+layout: layouts/app.liquid
 title: DoodleBloom
 date: 2026-09-28
 # Unlisted until the public TestFlight beta opens and the launch post is ready; then `beta`.
 status: in-development
+statusNote: "In beta (TestFlight) — open to everyone."
 # The public TestFlight link, shown in the status line once it is set.
 testflight: "https://testflight.apple.com/join/HPCEeByd"
 icon: /projects/attachments/doodleBloom-appIcon.png
@@ -14,86 +15,52 @@ subtitle: "A daily drawing app for iPhone and iPad. One page a day, with only a 
 tags:
   - ios
   - swift
-deviceScreenshots:
-  - name: iPhone
-    aspect: "201 / 437"
-    width: "212px"
-    images:
-      - /projects/attachments/doodlebloom/iphone-1.webp
-      - /projects/attachments/doodlebloom/iphone-2.webp
-      - /projects/attachments/doodlebloom/iphone-3.webp
-      - /projects/attachments/doodlebloom/iphone-4.webp
-      - /projects/attachments/doodlebloom/iphone-5.webp
-  - name: iPad
-    aspect: "3 / 4"
-    width: "345px"
-    images:
-      - /projects/attachments/doodlebloom/ipad-1.webp
-      - /projects/attachments/doodlebloom/ipad-2.webp
-      - /projects/attachments/doodlebloom/ipad-3.webp
-      - /projects/attachments/doodlebloom/ipad-4.webp
-      - /projects/attachments/doodlebloom/ipad-5.webp
-  - name: iPhone Duo
-    aspect: "2853 / 2007"
-    width: "480px"
-    images:
-      - /projects/attachments/doodlebloom/duo-1.webp
-      - /projects/attachments/doodlebloom/duo-2.webp
-      - /projects/attachments/doodlebloom/duo-3.webp
-      - /projects/attachments/doodlebloom/duo-4.webp
-      - /projects/attachments/doodlebloom/duo-5.webp
+pressKit: /projects/attachments/doodlebloom/DoodleBloom-Press-Kit.zip
+pressKitNote: "The press kit (a 20 MB zip) has every app icon, screenshots framed and unframed, and a fact sheet."
+changelog: /projects/doodlebloom/changelog/
+privacy: /projects/doodlebloom/privacy/
 ---
 
-**Status: In beta (TestFlight) — open to everyone.{% if testflight != "" %} [Join the public beta]({{ testflight }}).{% endif %}**
+DoodleBloom gives every day one page to draw on. A gentle reminder nudges you to draw something, with no streaks, no scores and nothing to fail at: just a growing collection of the days you drew.
 
-## Description
+{% showcase %}
+![DoodleBloom on iPhone and iPad: the journal of drawings, and today's page.](/projects/attachments/doodlebloom/devices.webp)
 
-DoodleBloom gives every day one page to draw on. That's it. Doodle your coffee, the view from the bus, a cat, a feeling. Big or small, finished or not, it all counts.
+## On iPhone and iPad
 
-A gentle reminder nudges you to draw something. There are no streak counters, no scores, and nothing to fail at. Just a friendly invitation to make something, and a growing collection of days you drew.
+Draw with Apple Pencil or your finger. Your drawings sync with iCloud, so a page is never lost to an out-of-date device, and back up to iCloud Drive every night.
+{% endshowcase %}
 
-**One page, every day**
+{% features %}
+### One page, every day
+![The journal, with a drawing for each day.](/projects/attachments/doodlebloom/feature-journal.webp)
+A fresh page each day. It stays open until a few hours after midnight, then it's kept just as it was.
 
-- A fresh page each day, with Apple Pencil or your finger
-- A roomy canvas that never runs out of edge
-- Blank, lined, grid or dot pages
-- Finish yesterday's page in the morning: each day stays open until a few hours after midnight (you choose how long), then it's kept as it was
+### A roomy canvas
+![Today's page, with the drawing tools out.](/projects/attachments/doodlebloom/feature-today.webp)
+Blank, lined, grid or dot paper that never runs out of edge, with every tool you need.
 
-**Watch your drawings grow**
+### Your year, in bloom
+![Year in Bloom: a collage of the year's drawings.](/projects/attachments/doodlebloom/feature-collage.webp)
+A collage of every drawing from the year, or just your favourites.
+{% endfeatures %}
 
-- Browse your days as a grid, a list, or a page-turning sketchbook
-- Favourite the ones you love
-- Year in Bloom turns your year, or a single month, into a calendar or collage poster, ready to share
-- Home Screen widgets show today's page and your favourite past drawings
+{% showcase "wide" %}
+![DoodleBloom on iPhone Duo: the journal on the closed outer display, and today's page with the drawing tools across the open inner display.](/projects/attachments/doodlebloom/duo.webp)
 
-**A little help when you're stuck**
+## Ready for iPhone Duo
 
-- Optional daily prompts, like "a plant", "your favourite mug" or "something blue"
-- Reminders at the times you pick, skipped on days you've already drawn
+Closed, the outer display keeps your journal close at hand. Open it up, and today's page spreads across the whole screen, with room to draw.
+{% endshowcase %}
 
-**Share what you make**
-
-- Export any drawing as PNG, transparent PNG or JPEG
-- Light or dark versions, with or without the page's lines
-
-**On all your devices**
-
-- Your drawings sync between iPhone and iPad with iCloud
-- Private by design: no accounts, no ads, no tracking, and no data collected
-
-**DoodleBloom Premium**
-
-- The Studio: copy any day's drawing and keep working on it, as many times as you like. The day itself stays just as it was.
-- Time-lapse replays: watch a drawing redraw itself, stroke by stroke, and share it as a video.
-
-Everything else is free, with an optional tip jar if you'd like to say thanks.
-
-[Privacy Policy](/projects/doodlebloom/privacy/)
-
-## Screenshots
-
-{% deviceGallery deviceScreenshots, "DoodleBloom" %}
-
-## Changelog
-
-Version 1.0 is in beta on TestFlight. See [what's new in each version and build](/projects/doodlebloom/changelog/).
+{% moreFeatures %}
+- **Year in Bloom** Turn a month into a calendar of the days you drew, ready to share.
+- **The Studio** Copy any day's drawing and keep working on it. With Premium.
+- **Time-lapse replays** Watch a drawing redraw itself, stroke by stroke, and share it as a video. With Premium.
+- **Widgets** Today's page and your favourite drawings, on the Home Screen.
+- **Prompts and reminders** An idea when you're stuck, and a nudge at the times you pick.
+- **Share and export** PNG, transparent PNG or JPEG, light or dark, with or without the lines.
+- **Grid, list or sketchbook** Browse your days the way you like, and favourite the ones you love.
+- **Private by design** No accounts, no ads, no tracking, and no data collected.
+- **Free to draw** Everything else is free, with an optional tip jar.
+{% endmoreFeatures %}

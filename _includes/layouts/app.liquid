@@ -1,0 +1,28 @@
+---
+layout: layouts/base.liquid
+---
+{% comment %}
+  App pages: an app's product page, written in plain Markdown. The base layout draws the banner,
+  title, subtitle and icon; this adds, from the front matter:
+
+    statusNote:  "In beta (TestFlight) — open to everyone."   the status line, linking to
+    testflight:  "https://testflight.apple.com/join/…"        the public beta when there is one
+    pressKit:    /projects/attachments/<app>/<App>-Press-Kit.zip
+    pressKitNote: "The press kit (a 20 MB zip) has …"
+    changelog:   /projects/<app>/changelog/
+    privacy:     /projects/<app>/privacy/
+
+  and the page itself is Markdown: a first paragraph, which shows as the lede, then sections
+  made with {% raw %}{% showcase %}{% endraw %}, {% raw %}{% features %}{% endraw %} and
+  {% raw %}{% moreFeatures %}{% endraw %} (see .eleventy.js), and anything else Markdown can say.
+  The Press Kit and Changelog buttons, and the small print, close the page.
+{% endcomment %}
+<div class="app-page">
+{% if statusNote %}<p class="app-status"><strong>Status: {{ statusNote }}{% if testflight and testflight != "" %} <a href="{{ testflight }}">Join the public beta</a>.{% endif %}</strong></p>{% endif %}
+{{ content }}
+{% if pressKit or changelog %}<div class="project-actions">
+{% if pressKit %}<a class="button" href="{{ pressKit }}" download>Press Kit</a>{% endif %}
+{% if changelog %}<a class="button" href="{{ changelog }}">Changelog</a>{% endif %}
+</div>{% endif %}
+{% if pressKitNote or privacy %}<p class="project-small-print">{{ pressKitNote }}{% if privacy %} <a href="{{ privacy }}">Privacy Policy</a>{% endif %}</p>{% endif %}
+</div>

@@ -151,6 +151,57 @@ ${tagChanges(markdown.render(content))}
     );
   });
 
+  // App pages (layouts/app.liquid). Each takes plain Markdown and lays it out.
+  //
+  // The first image in a block is pulled out so the text can sit beneath it as a caption.
+  function splitImage(html) {
+    const match = html.match(/<img[^>]*>/);
+    if (!match) return { image: "", rest: html };
+    const image = match[0].replace(/<img /, '<img loading="lazy" ');
+    // Whether the image had a paragraph of its own or opened the text's, leave no empty one.
+    const rest = html
+      .replace(match[0], "")
+      .replace(/<p>\s*(<br\s*\/?>)?\s*/, "<p>")
+      .replace(/<p>\s*<\/p>/, "")
+      .trim();
+    return { image, rest };
+  }
+
+  // {% showcase %} ![alt](image) / ## Heading / text {% endshowcase %}: a wide image, with its
+  // heading and text centred beneath. `{% showcase "wide" %}` lets the image fill the column.
+  eleventyConfig.addPairedShortcode("showcase", function (content, size) {
+    const { image, rest } = splitImage(markdown.render(content));
+    const modifier = size === "wide" ? " devices-hero--wide" : "";
+    return htmlBlock(`<figure class="devices-hero${modifier}">
+${image}
+<figcaption>${rest}</figcaption>
+</figure>`);
+  });
+
+  // {% features %} ### Title / ![alt](image) / text … {% endfeatures %}: screenshots in a row,
+  // each with its title and text beneath. One `###` heading starts each feature.
+  eleventyConfig.addPairedShortcode("features", function (content) {
+    const items = content
+      .split(/^### /m)
+      .map((part) => part.trim())
+      .filter(Boolean)
+      .map((part) => {
+        const [title, ...lines] = part.split("\n");
+        const { image, rest } = splitImage(markdown.render(lines.join("\n")));
+        return `<figure class="feature">
+${image}
+<figcaption><h3>${markdown.renderInline(title.trim())}</h3>${rest}</figcaption>
+</figure>`;
+      });
+    return htmlBlock(`<div class="feature-grid">\n${items.join("\n")}\n</div>`);
+  });
+
+  // {% moreFeatures %} - **Title** text … {% endmoreFeatures %}: the rest of an app's features,
+  // as a list, laid out in columns. The bold words become each one's heading.
+  eleventyConfig.addPairedShortcode("moreFeatures", function (content) {
+    return htmlBlock(`<div class="more-features">\n${markdown.render(content)}\n</div>`);
+  });
+
   // `aspect` is the screenshots' shape, as a CSS ratio — phone-shaped ("9 / 19.5") unless
   // given, e.g. "3 / 4" for iPad screenshots, which would otherwise be cropped at the sides.
   eleventyConfig.addShortcode("gallery", function (images, altPrefix, aspect) {
