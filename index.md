@@ -30,4 +30,22 @@ hideTitle: true
 
 ## Recently Released
 
-_Coming soon._
+{%- assign doodlebloom = collections.currentApps | where: "url", "/projects/doodlebloom/" | first %}
+{% if doodlebloom %}
+<ul class="post-list post-list--bare">
+  <li>
+    <a class="post-item" href="{{ doodlebloom.url }}">
+      <div class="post-text">
+        <div class="post-meta">
+          <h3>{{ doodlebloom.data.title }}</h3>
+          <span class="date">In beta</span>
+        </div>
+        <p class="post-excerpt">{{ doodlebloom.data.subtitle }}</p>
+      </div>
+      <img class="post-thumb post-thumb--icon" src="{{ doodlebloom.data.icon }}" alt="" loading="lazy">
+    </a>
+  </li>
+</ul>
+
+<p class="see-more"><a href="{{ doodlebloom.url }}">Read more here →</a></p>
+{% endif %}

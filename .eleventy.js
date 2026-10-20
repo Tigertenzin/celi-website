@@ -78,6 +78,23 @@ module.exports = function (eleventyConfig) {
       .filter((project) => project.data.status !== "archived" && project.data.status !== "in-development");
   });
 
+  // The Projects page's Current section: apps first, alphabetically, as a grid of icons; then
+  // everything else, in the order above. An app is a project tagged `ios`.
+  const isApp = (project) => (project.data.tags || []).includes("ios");
+  eleventyConfig.addCollection("currentApps", function (collectionApi) {
+    return collectionApi
+      .getFilteredByGlob("projects/*.md")
+      .filter((project) => project.data.status !== "archived" && project.data.status !== "in-development")
+      .filter(isApp)
+      .sort((a, b) => a.data.title.localeCompare(b.data.title, "en", { sensitivity: "base" }));
+  });
+  eleventyConfig.addCollection("currentOtherProjects", function (collectionApi) {
+    return collectionApi
+      .getFilteredByGlob("projects/*.md")
+      .filter((project) => project.data.status !== "archived" && project.data.status !== "in-development")
+      .filter((project) => !isApp(project));
+  });
+
   eleventyConfig.addCollection("archivedProjects", function (collectionApi) {
     return collectionApi
       .getFilteredByGlob("projects/*.md")
