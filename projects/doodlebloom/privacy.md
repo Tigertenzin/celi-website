@@ -9,7 +9,7 @@ eleventyExcludeFromCollections: true
 # Privacy Policy
 
 **DoodleBloom**
-_Last updated: 14 October 2026_
+_Last updated: 9 November 2026_
 
 DoodleBloom is a daily drawing app for iPhone and iPad. This policy explains what happens to your information when you use DoodleBloom, including
 DoodleBloom Premium and the tip jar.
@@ -94,14 +94,14 @@ sales and subscription reports that don't identify individual customers.
 
 - **What it includes:** the Studio (copy any day's drawing and keep working on it) and
   time-lapse replays of your drawings.
-- **Price:** $2.99 (USD) per month, or the equivalent price in your region as shown in the app
-  before you buy.
+- **Price:** $2.99 (USD) a month, or $19.99 (USD) a year, or the equivalent prices in your
+  region as shown in the app before you buy.
 - **Free trial:** new subscribers may be offered a 1-week free trial. If you're offered a trial,
   your subscription starts, and you're charged, when the trial ends, unless you cancel before
   then.
 - **Payment:** payment is charged to your Apple Account when you confirm the purchase, or when
   the free trial ends.
-- **Automatic renewal:** your subscription renews automatically each month unless you cancel it
+- **Automatic renewal:** your subscription renews automatically each month or year unless you cancel it
   at least 24 hours before the end of the current period. Your account is charged for renewal
   within 24 hours before the end of the current period.
 - **Managing or cancelling:** manage or cancel your subscription at any time in
